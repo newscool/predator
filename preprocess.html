@@ -12,67 +12,92 @@
 </head>
 
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="./img/logo.png">
-            </a>
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
+    <nav>
+        <div class="logo">
+            <img src="./img/logo.png" alt="Predator">
         </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Pre Process
-                </a>
-                <a class="navbar-item">
-                    Simulation
-                </a>
-                <a class="navbar-item">
-                    Post Process
-                </a>
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        More
-                    </a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            About
-                        </a>
-                        <a class="navbar-item">
-                            Jobs
-                        </a>
-                        <a class="navbar-item">
-                            Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Report an issue
-                        </a>
-                    </div>
+        <ul class="tab">
+            <li class="is-active">
+                <div class="item">
+                    <i class="fas fa-car"></i>
+                    <span>Pre Process</span>
                 </div>
-            </div>
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Logout</strong>
-                        </a>
-                    </div>
+            </li>
+            <li>
+                <div class="item">
+                    <i class="fas fa-cog"></i>
+                    <span>Simulation</span>
                 </div>
-            </div>
+            </li>
+            <li>
+                <div class="item">
+                    <i class="fas fa-poll"></i>
+                    <span>Post Process</span>
+                </div>
+            </li>
+        </ul>
+        <div class="util">
+            <a href="" class="button is-primary"><i class="fas fa-history"></i>Simulation History</a>
+            <a href="" class="button is-danger"><i class="fas fa-power-off"></i>Logout</a>
         </div>
     </nav>
 
-    <section class="content-body">
+    <section class="section section-preprocess">
         <div class="container">
-            fdsfds
+            <div class="columns">
+                <aside class="column is-4">
+                    <div class="box">
+                        <h2 class="title is-6">1. Select a Vehicle</h2>
+                        <div class="select is-danger is-small">
+                            <select>
+                                <option>Select Car</option>
+                                <option>Hyundai vehicle 001</option>
+                                <option>Hyundai vehicle 002</option>
+                                <option>Hyundai vehicle 003</option>
+                                <option>Hyundai vehicle 004</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <h2 class="title is-6">2. Configure Axle</h2>
+                        <div class="select is-small">
+                            <select>
+                                <option>Front Axle Number</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                        <div class="select is-small">
+                            <select>
+                                <option>Rear Axle Number</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <h2 class="title is-6">3. Select a Part</h2>
+                        <ul class="select-part">
+                            <li class="button">Body</li>
+                            <li class="button">Cab</li>
+                            <li class="button">Front Axle</li>
+                            <li class="button">Rear Axle</li>
+                        </ul>
+                        <hr>
+                        <a href="" class="button is-success"><i class="fas fa-check"></i>Confirm</a>
+                    </div>
+                </aside>
+                <div class="column is-8">
+                    <div class="box is-waiting">
+                        <span><i class="far fa-clock"></i>Waiting for left Input</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    <footer class="container">
+        © Institute of Vehicle Engineering
+    </footer>
 
 </body>
 
