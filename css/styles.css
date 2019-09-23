@@ -72,6 +72,7 @@ nav .logo img {
 }
 
 
+.simulation .box,
 .preprocess .box {
     padding: 30px 20px;
     /* min-height: 600px; */
@@ -79,6 +80,19 @@ nav .logo img {
 .box .button.is-static {
     font-size: 10px;
     height: 100%;
+}
+
+.simulation .tag {
+    margin-bottom: 10px;
+}
+.simulation aside .is-horizontal .field-label label {
+    width: 100px !important;
+}
+.simulation .process-info {
+    margin-bottom: 30px;
+}
+.simulation .process-info h2 {
+    margin-bottom: 15px;
 }
 
 aside .box {
