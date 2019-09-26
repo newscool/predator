@@ -1,0 +1,450 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/bulma.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <title>iVH - Predator</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="./img/logo.png" alt="Predator">
+        </div>
+        <ul class="tab">
+            <li>
+                <div class="item">
+                    <i class="fas fa-car"></i>
+                    <span>Pre Process</span>
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <i class="fas fa-cog"></i>
+                    <span>Simulation</span>
+                </div>
+            </li>
+            <li class="is-active">
+                <div class="item">
+                    <i class="fas fa-poll"></i>
+                    <span>Post Process</span>
+                </div>
+            </li>
+        </ul>
+        <div class="util">
+            <a href="" class="button button-history is-primary"><i
+                    class="fas fa-history"></i>Simulation
+                History</a>
+            <a href="" class="button is-danger"><i class="fas fa-power-off"></i>Logout</a>
+        </div>
+    </nav>
+
+    <section class="section postprocess">
+        <div class="container">
+            <div class="columns">
+                <aside class="column is-4">
+                    <div class="box is-fixed">
+                        <div class="content">
+                            <h2 class="title is-6">Process Summary</h2>
+                            <ul>
+                                <li><b>Vehicle</b>Hyundai Vehicle 001</li>
+                                <li><b>Axles</b>Frond(1) / Rear(1)</li>
+                                <li><b>Part</b>Body</li>
+                            </ul>
+                        </div>
+                        <div class="buttons">
+                            <a href="./simulation.html" class="button is-dark"><i
+                                    class="fas fa-arrow-left"></i>Back to Simulation</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h2 class="title is-6">Data</h2>
+                        <table class="table is-fullwidth is-bordered is-striped is-narrow">
+                            <thead>
+                                <tr>
+                                    <th>Performance Index</th>
+                                    <th>Value</th>
+                                    <th>Unit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>SideSlip Rate</td>
+                                    <td>0.14</td>
+                                    <td>sec</td>
+                                </tr>
+                                <tr>
+                                    <td>Ay vs Time</td>
+                                    <td>0.07</td>
+                                    <td>sec</td>
+                                </tr>
+                                <tr>
+                                    <td>TawR vs Time</td>
+                                    <td>0.16</td>
+                                    <td>sec</td>
+                                </tr>
+                                <tr>
+                                    <td>RollR vs Ay</td>
+                                    <td>0.16</td>
+                                    <td>deg/s s</td>
+                                </tr>
+                                <tr>
+                                    <td>Roll vs Time</td>
+                                    <td>1.00002</td>
+                                    <td>%</td>
+                                </tr>
+                                <tr>
+                                    <td>SideSlip Rate</td>
+                                    <td>0.14</td>
+                                    <td>sec</td>
+                                </tr>
+                                <tr>
+                                    <td>Ay vs Time</td>
+                                    <td>0.07</td>
+                                    <td>sec</td>
+                                </tr>
+                                <tr>
+                                    <td>TawR vs Time</td>
+                                    <td>0.16</td>
+                                    <td>sec</td>
+                                </tr>
+                                <tr>
+                                    <td>RollR vs Ay</td>
+                                    <td>0.16</td>
+                                    <td>deg/s s</td>
+                                </tr>
+                                <tr>
+                                    <td>Roll vs Time</td>
+                                    <td>1.00002</td>
+                                    <td>%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="box">
+                        <h2 class="title is-6">Input</h2>
+                        <canvas class="myChart1"></canvas>
+                        <canvas class="myChart2"></canvas>
+                    </div>
+                </aside>
+
+                <div class="column is-8">
+                    <div class="box">
+                        <h2 class="title is-4">Result</h2>
+                        <div class="columns">
+                            <div class="column">
+                                <canvas class="myChart3" height="200"></canvas>
+                                <canvas class="myChart4" height="200"></canvas>
+                                <canvas class="myChart5" height="200"></canvas>
+                            </div>
+                            <div class="column">
+                                <canvas class="myChart6" height="200"></canvas>
+                                <canvas class="myChart7" height="200"></canvas>
+                                <canvas class="myChart8" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="level">
+                        <div class="level-left">
+                            <div class="level-item">
+                                <div class="buttons">
+                                    <a href="" class="button is-success"><i
+                                            class="fas fa-file-pdf"></i>Download PDF</a>
+                                    <a href="" class="button button-save is-danger"><i
+                                            class="fas fa-save"></i>Save Result</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="level-right">
+                            <div class="level-item">
+                                <div class="buttons">
+                                    <a href="./preprocess.html" class="button is-link"><i
+                                            class="fas fa-home"></i>Go to Pre Process</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="container">
+        © Institute of Vehicle Engineering
+    </footer>
+
+    <!-- modal save -->
+    <div class="modal modal-save">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Save Result</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <div class="field">
+                        <input type="text" class="input" placeholder="Please enter a subject">
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success">Save</button>
+                    <button class="button">Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+
+
+    <!-- modal hitory -->
+    <div class="modal modal-history">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <div class="info">
+                    <h1>Simulation History</h1>
+                    <h1 class="user"><i class="fas fa-user-circle"></i>admin@ivh.com</h1>
+                </div>
+                <hr>
+                <table class="table is-bordered is-hoverable is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="title">Test 001-4783937489</td>
+                            <td>2019/09/31 12:12:11</td>
+                            <td>
+                                <div class="buttons is-centered">
+                                    <a href="" class="button is-small is-link"><i
+                                        class="fas fa-history"></i>Load</a>
+                                    <a href="" class="button is-small is-danger"><i class="far fa-trash-alt"></i>Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title">Test 001-4783937489</td>
+                            <td>2019/09/31 12:12:11</td>
+                            <td>
+                                <div class="buttons is-centered">
+                                    <a href="" class="button is-small is-link"><i
+                                        class="fas fa-history"></i>Load</a>
+                                    <a href="" class="button is-small is-danger"><i class="far fa-trash-alt"></i>Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title">Test 001-4783937489</td>
+                            <td>2019/09/31 12:12:11</td>
+                            <td>
+                                <div class="buttons is-centered">
+                                    <a href="" class="button is-small is-link"><i
+                                        class="fas fa-history"></i>Load</a>
+                                    <a href="" class="button is-small is-danger"><i class="far fa-trash-alt"></i>Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title">Test 001-4783937489</td>
+                            <td>2019/09/31 12:12:11</td>
+                            <td>
+                                <div class="buttons is-centered">
+                                    <a href="" class="button is-small is-link"><i
+                                        class="fas fa-history"></i>Load</a>
+                                    <a href="" class="button is-small is-danger"><i class="far fa-trash-alt"></i>Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <a href="" class="button button-close">Close</a>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script>
+        $(function () {
+            $(".button-save").click(function (e) {
+                e.preventDefault();
+                $(".modal-save").addClass("is-active");
+            })
+
+            $(".modal-background, button.delete, .modal-close, .button-close").click(function (e) {
+                e.preventDefault();
+                $(this).parents(".modal").removeClass("is-active");
+            })
+
+            $(".button-history").click(function (e) {
+                e.preventDefault();
+                $(".modal-history").addClass("is-active");
+            })
+        })
+
+        var ctx1 = document.querySelector('.myChart1');
+        var ctx2 = document.querySelector('.myChart2');
+        var ctx3 = document.querySelector('.myChart3');
+        var ctx4 = document.querySelector('.myChart4');
+        var ctx5 = document.querySelector('.myChart5');
+        var ctx6 = document.querySelector('.myChart6');
+        var ctx7 = document.querySelector('.myChart7');
+        var ctx8 = document.querySelector('.myChart8');
+        var options = {
+            layout: {
+                padding: {
+                    top: 20,
+                    bottom: 20
+                }
+            },
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: 'Steering Wheel Angle',
+                fontColor: '#000'
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Angle(deg)'
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Time(s)'
+                    }
+                }]
+            }
+        };
+        var myChart1 = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6'],
+                datasets: [{
+                    label: 'Steering Wheel Angle',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 255, 255, 0)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    lineTension: 0
+                }]
+            },
+            options: options
+        });
+        var myChart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6'],
+                datasets: [{
+                    label: 'Steering Wheel Angle',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 255, 255, 0)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    lineTension: 0
+                }]
+            },
+            options: options
+        });
+        var myChart3 = new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6'],
+                datasets: [{
+                    label: 'Steering Wheel Angle',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 255, 255, 0)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    lineTension: 0
+                }]
+            },
+            options: options
+        });
+        var myChart4 = new Chart(ctx4, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6'],
+                datasets: [{
+                    label: 'Steering Wheel Angle',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 255, 255, 0)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    lineTension: 0
+                }]
+            },
+            options: options
+        });
+        var myChart5 = new Chart(ctx5, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6'],
+                datasets: [{
+                    label: 'Steering Wheel Angle',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 255, 255, 0)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    lineTension: 0
+                }]
+            },
+            options: options
+        });
+        var myChart6 = new Chart(ctx6, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6'],
+                datasets: [{
+                    label: 'Steering Wheel Angle',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 255, 255, 0)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    lineTension: 0
+                }]
+            },
+            options: options
+        });
+        var myChart7 = new Chart(ctx7, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6'],
+                datasets: [{
+                    label: 'Steering Wheel Angle',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 255, 255, 0)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    lineTension: 0
+                }]
+            },
+            options: options
+        });
+    </script>
+</body>
+
+</html>

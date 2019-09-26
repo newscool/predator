@@ -33,7 +33,7 @@ nav .tab li .item {
     align-items: center;
     height: 100%;
     padding: 0 50px;
-    font-size: 14px;
+    font-size: 18px;
     color: #aaa;
 }
 nav .tab li.is-active .item {
@@ -73,6 +73,7 @@ nav .logo img {
 
 
 .simulation .box,
+.postprocess .box,
 .preprocess .box {
     padding: 30px 20px;
     /* min-height: 600px; */
@@ -95,7 +96,7 @@ nav .logo img {
     margin-bottom: 15px;
 }
 
-aside .box {
+aside .box.is-fixed {
     background-color: #f9f9f9;
 }
 aside hr {
@@ -103,14 +104,20 @@ aside hr {
     height: 1px;
     margin: 28px 0;
 }
-aside h2 {
+aside ul li b {
+    width: 70px;
+    display: inline-block;
 }
 
+
+table {
+    font-size: 13px;
+}
 
 .field-label {
     text-align: left;
 }
-.field-label label {
+label.label {
     font-weight: normal;
 }
 
@@ -130,4 +137,42 @@ footer {
     font-size: 12px;
     color: #aaa;
     text-align: right;
+}
+
+
+canvas {
+    /* width: 100% !important; */
+}
+
+
+/* modal */
+.modal table th {
+    text-align: center !important;
+    background-color: #f1f1f1;
+    font-size: 11px;
+}
+.modal table td {
+    text-align: center;
+    vertical-align: middle;
+}
+.modal table td.title {
+    text-align: left;
+    font-size: inherit;
+}
+.modal .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal .info h1 {
+    font-size: 1.5rem;
+    color: #000;
+}
+.modal h1.user {
+    font-size: 13px;
+    font-weight: normal;
+}
+.modal h1.user i {
+    vertical-align: middle;
+    color: #aaa;
 }
