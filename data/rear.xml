@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<suspension type="mdType1">
+   <stabilizerStiffness unit="Nm/rad">1</stabilizerStiffness>
+   <damper>
+      <velocity unit="m/s">[-1 -0.52 -0.393 -0.262 -0.121 0 0.121 0.262 0.393 0.52 1]</velocity>
+      <force unit="N">[-433.1 -312.3 -271.5 -221.7 -150.7 0 1506.7 2217.1 2715.4 3123.5 4331.5]</force>
+   </damper>
+   <scale unit="m">[1 1 1]</scale>
+   <offset unit="m">[0 0 0]</offset>
+   <hardpoint>
+      <r0CS_1 unit="m">[-4.2779 0.495 -0.18]</r0CS_1>
+      <r0PS_1 unit="m">[-5.5748 0.495 -0.2234]</r0PS_1>
+      <r0BS_1 unit="m">[-4.916 0.495 -0.26]</r0BS_1>
+      <r0CD_1 unit="m">[-5.0589 0.279 -0.09]</r0CD_1>
+      <r0BD_1 unit="m">[-5.0189 0.279 -0.596]</r0BD_1>
+      <r0CS_2 unit="m">[-4.2779 -0.495 -0.18]</r0CS_2>
+      <r0PS_2 unit="m">[-5.5748 -0.495 -0.2234]</r0PS_2>
+      <r0BS_2 unit="m">[-4.916 -0.495 -0.26]</r0BS_2>
+      <r0CD_2 unit="m">[-5.0589 -0.279 -0.09]</r0CD_2>
+      <r0BD_2 unit="m">[-5.0189 -0.279 -0.596]</r0BD_2>
+      <p0P unit="rad">0.38552</p0P>
+      <s0P unit="m">0.09</s0P>
+   </hardpoint>
+   <forceElement>
+      <f0 unit="N">8580</f0>
+      <c_v unit="N/m">1006506</c_v>
+      <c_l unit="N/m">2000000</c_l>
+      <cS1_x unit="N/m">98100000</cS1_x>
+      <cS1_y unit="N/m">98100000</cS1_y>
+      <cS1_z unit="N/m">98100000</cS1_z>
+      <cS2_y unit="N/m">98100000</cS2_y>
+      <cS2_r unit="N/m">98100000</cS2_r>
+      <dS1 unit="N.s/m">981</dS1>
+      <dS2_r unit="N.s/m">981</dS2_r>
+      <dS2_y unit="N.s/m">981</dS2_y>
+      <d_l>300</d_l>
+      <d_v>300</d_v>
+      <c_p>300</c_p>
+   </forceElement>
+   <axle>
+      <scale unit="m">[1 1 1]</scale>
+      <offset unit="m">[0 0 0]</offset>
+      <hardpoint>
+         <r0B unit="m">[-4.9079 0 -0.408]</r0B>
+         <r0H_1 unit="m">[-4.9079 0.83 -0.408]</r0H_1>
+         <r0H_2 unit="m">[-4.9079 -0.83 -0.408]</r0H_2>
+      </hardpoint>
+      <mass>
+         <method>2</method>
+         <density unit="kg/m3">3000</density>
+         <rcm unit="m">[0 0 0]</rcm>
+         <m unit="kg">380</m>
+      </mass>
+      <inertia>
+         <i_11 unit="kg.m2">1000</i_11>
+         <i_22 unit="kg.m2">10</i_22>
+         <i_33 unit="kg.m2">1000</i_33>
+         <i_21 unit="kg.m2">0</i_21>
+         <i_31 unit="kg.m2">0</i_31>
+         <i_32 unit="kg.m2">0</i_32>
+      </inertia>
+   </axle>
+   <wheel>
+      <toe unit="rad">0</toe>
+      <camber unit="rad">0</camber>
+   </wheel>
+</suspension>

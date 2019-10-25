@@ -44,49 +44,34 @@
     </nav>
 
     <section class="section preprocess">
-        <div class="container">
+        <div class="container is-fluid">
             <div class="columns">
                 <aside class="column is-4">
                     <div class="box is-fixed">
-                        <h2 class="title is-6">Select a Vehicle</h2>
-                        <div class="select is-danger is-small">
-                            <select>
-                                <option>Select Car</option>
-                                <option>Hyundai vehicle 001</option>
-                                <option>Hyundai vehicle 002</option>
-                                <option>Hyundai vehicle 003</option>
-                                <option>Hyundai vehicle 004</option>
-                            </select>
+                        <h2 class="title is-6"><i class="far fa-folder-open"></i>test_simulation</h2>
+                        <div class="content">
+                            <ul class="projectInfo">
+                                <li>
+                                    <div class="item-name">Vehicles</div>
+                                    <div class="item-value">Hyundai vehicle 01</div>
+                                </li>
+                                <li>
+                                    <div class="item-name">Configure Axle</div>
+                                    <div class="item-value">Front : 2 / Rear : 2</div>
+                                </li>
+                            </ul>
                         </div>
-                        <hr>
-                        <h2 class="title is-6">Configure Axle</h2>
-                        <div class="select is-small">
-                            <select>
-                                <option>Front Axle Number</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-                        </div>
-                        <div class="select is-small">
-                            <select>
-                                <option>Rear Axle Number</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-                        </div>
-                        <hr>
-                        <h2 class="title is-6">Select a Part</h2>
+                    </div>
+                    <div class="box is-fixed">
+                        <h2 class="title is-6"><i class="fas fa-project-diagram"></i>Select a Part</h2>
                         <ul class="select-part">
                             <li class="button">Body</li>
                             <li class="button">Cab</li>
                             <li class="button">Front Axle</li>
                             <li class="button">Rear Axle</li>
                         </ul>
-                        <hr>
-                        <a href="" class="button is-danger"><i class="far fa-trash-alt"></i>Rework</a>
                     </div>
+                    <a href="" class="button is-dark"><i class="far fa-folder-open"></i>New Project</a>
                 </aside>
 
                 <div class="column is-8">
@@ -322,8 +307,7 @@
                         </div>
                         <div class="level-right">
                             <div class="level-item">
-                                <a href="./simulation.html" class="button is-link"><i
-                                        class="fas fa-arrow-right"></i>Next - Configure
+                                <a href="./simulation.html" class="button is-link"><i class="fas fa-arrow-right"></i>Next - Configure
                                     Simulation</a>
                             </div>
                         </div>
@@ -335,6 +319,15 @@
     <footer class="container">
         © Institute of Vehicle Engineering
     </footer>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous">
+    </script>
+
+    <script>
+        $("a.button").each(function () {
+            $(this).attr("tabindex", "-1");
+        })
+    </script>
 
 </body>
 

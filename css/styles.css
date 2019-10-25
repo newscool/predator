@@ -1,13 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500&display=swap');
+
 body {
     min-width: 1140px;
+    font-family: 'Ubuntu', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
 }
+
+.title,
+label {
+    font-weight: 500;
+    color: #333;
+}
+
+.button {
+    font-size: 13px;
+}
+
+hr {
+    background-color: #ddd;
+    height: 1px;
+    margin: 25px 0;
+}
+
 i {
     margin-right: 5px;
 }
+
+.button {
+    border-radius: 2px1;
+}
+
+.box {
+    padding: 25px;
+    border-radius: 2px;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, .07), 0 0 0 1px rgba(10, 10, 10, .08);
+}
+
+.content ul {
+    margin-left: 1em;
+}
+
+section {
+    padding: 3rem 0 !important;
+}
+
+
+/* nav */
+
 nav {
     position: relative;
     display: flex;
     justify-content: space-between;
+    align-content: center;
     padding: 10px;
     height: 60px;
     background-color: #f2f2f2;
@@ -24,23 +68,27 @@ nav .tab {
     font-size: 0;
     height: 100%;
 }
+
 nav .tab li {
     display: inline-block;
     height: 100%;
 }
+
 nav .tab li .item {
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0 50px;
-    font-size: 18px;
+    padding: 0 40px;
+    font-size: 14px;
     color: #aaa;
 }
+
 nav .tab li.is-active .item {
     background-color: #fff;
     color: #000;
-    font-weight: 600;
+    font-weight: 500;
 }
+
 nav .tab li i {
     font-size: 20px;
     margin-right: 5px;
@@ -49,8 +97,9 @@ nav .tab li i {
 
 nav .logo img {
     height: 100%;
-    padding: 5px;
+    padding: 8px 10px;
 }
+
 
 .container {
     min-width: 1140px !important;
@@ -75,9 +124,10 @@ nav .logo img {
 .simulation .box,
 .postprocess .box,
 .preprocess .box {
-    padding: 30px 20px;
+    padding: 20px;
     /* min-height: 600px; */
 }
+
 .box .button.is-static {
     font-size: 10px;
     height: 100%;
@@ -86,12 +136,15 @@ nav .logo img {
 .simulation .tag {
     margin-bottom: 10px;
 }
+
 .simulation aside .is-horizontal .field-label label {
     width: 100px !important;
 }
+
 .simulation .process-info {
     margin-bottom: 30px;
 }
+
 .simulation .process-info h2 {
     margin-bottom: 15px;
 }
@@ -99,14 +152,105 @@ nav .logo img {
 aside .box.is-fixed {
     background-color: #f9f9f9;
 }
-aside hr {
-    background-color: #ddd;
-    height: 1px;
-    margin: 28px 0;
-}
+
 aside ul li b {
     width: 70px;
     display: inline-block;
+}
+
+aside .box .title {
+    margin-bottom: 10px;
+}
+
+.box.is-content label,
+aside .box label {
+    /* font-size: 12px !important; */
+    margin-bottom: 2px;
+}
+
+aside .box .field {
+    margin-bottom: 0;
+}
+
+aside .box .field .field-label {
+    padding-top: 5px;
+}
+
+aside .box .field.is-parent {
+    margin-left: 1em;
+}
+
+.box.is-content .field-body input,
+aside .box .field-body input {
+    font-size: 11px;
+    height: 20px;
+    border-radius: 2px;
+}
+
+.box.is-content .button.is-static,
+aside .box .field-body .button.is-static {
+    font-size: 9px;
+    height: 20px;
+    border-radius: 2px;
+    color: #999;
+}
+
+.field-body>.field:not(.is-narrow) {
+    flex-grow: unset;
+}
+
+.box.is-content .title {
+    margin-bottom: 10px;
+}
+
+
+
+.box.is-content .is-parent {
+    margin-left: 1em;
+    margin-bottom: 5px;
+}
+
+.box.is-content .is-horizontal label {
+    width: 100px;
+}
+
+.box.is-content .is-short input {
+    width: 50px;
+}
+
+.box.is-content .is-horizontal input {
+    font-size: 11px;
+    height: 20px;
+    border-radius: 2px;
+}
+
+.box p.help {
+    font-size: 10px;
+    color: #999;
+    margin-top: 0;
+}
+
+
+/* project info */
+.projectInfo {
+    font-size: 12px;
+}
+
+.projectInfo li {
+    display: flex;
+}
+
+.projectInfo .item-name {
+    width: 100px;
+    font-weight: 500;
+}
+
+.projectInfo .item-value {
+    color: #999;
+}
+
+.select-part {
+    margin-left: 1em;
 }
 
 
@@ -117,6 +261,7 @@ table {
 .field-label {
     text-align: left;
 }
+
 label.label {
     font-weight: normal;
 }
@@ -132,11 +277,23 @@ label.label {
 }
 
 
+/* initialize */
+.initialize .field {
+    margin-bottom: 25px !important;
+}
+
+.initialize .field label {
+    font-size: 14px;
+}
+
+
 /* footer */
 footer {
     font-size: 12px;
     color: #aaa;
-    text-align: right;
+    text-align: center;
+    /* text-align: right; */
+    margin-top: 50px !important;
 }
 
 
@@ -151,28 +308,149 @@ canvas {
     background-color: #f1f1f1;
     font-size: 11px;
 }
+
 .modal table td {
     text-align: center;
     vertical-align: middle;
 }
+
 .modal table td.title {
     text-align: left;
     font-size: inherit;
 }
+
 .modal .info {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .modal .info h1 {
     font-size: 1.5rem;
     color: #000;
 }
+
 .modal h1.user {
     font-size: 13px;
     font-weight: normal;
 }
+
 .modal h1.user i {
     vertical-align: middle;
     color: #aaa;
+}
+
+
+
+
+
+
+/* new */
+
+h2 {
+    color: #000;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 12px;
+    line-height: 1;
+    vertical-align: baseline;
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+    color: #3273dc;
+    margin: 10px 0 20px;
+}
+
+table {
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    font-size: 10px;
+    font-weight: normal;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+table input {
+    width: 50px;
+}
+
+.button {
+    border-radius: 0;
+}
+
+.forms {
+    margin-top: 10px;
+}
+
+.form-item {
+    display: flex;
+    align-items: center;
+}
+
+.form-item a.button {
+    font-size: 11px;
+    padding: 10px;
+    line-height: 1;
+    height: 23px;
+}
+
+.form-item label {
+    font-size: 11px;
+    font-weight: normal;
+    min-width: 80px;
+    margin-right: 10px;
+    height: 23px;
+    display: block;
+    line-height: 1;
+    margin: 0 10px 0 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+.form-item input {
+    font-size: 12px;
+    display: block;
+    width: 100%;
+    padding: 3px 5px;
+    padding-right: 20px;
+    border: 0;
+    background-color: #f3f3f3;
+    color: #0b62ee;
+}
+
+.form-item.is-small input {
+    width: 70px;
+}
+
+.form-item .input-text {
+    position: relative;
+    margin-right: 10px;
+}
+
+.form-item .input-text::before {
+    display: block;
+    content: attr(data-title);
+    font-size: 10px;
+    color: #999;
+}
+
+.form-item .input-text::after {
+    position: absolute;
+    right: 5px;
+    bottom: 3px;
+    display: block;
+    content: attr(data-unit);
+    font-size: 9px;
+    color: #ccc;
+}
+
+.form-item+p.help {
+    font-size: 9px;
+    color: #999;
+    margin-top: 2px;
 }

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="./css/bulma.min.css">
+	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="./css/all.css">
+	<title>iVH - Predator</title>
+</head>
+
+<body>
+	<nav>
+		<div class="logo">
+			<img src="./img/logo.png" alt="Predator">
+		</div>
+		<ul class="tab">
+			<li class="is-active">
+				<div class="item">
+					<i class="fas fa-car"></i>
+					<span>Pre Process</span>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<i class="fas fa-cog"></i>
+					<span>Simulation</span>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<i class="fas fa-poll"></i>
+					<span>Post Process</span>
+				</div>
+			</li>
+		</ul>
+		<div class="buttons">
+			<a href="" class="button is-primary is-small"><i class="far fa-folder-open"></i>My Project</a>
+			<a href="" class="button is-danger is-small"><i class="fas fa-power-off"></i>Logout</a>
+		</div>
+	</nav>
+
+	<section class="section preprocess">
+		<div class="container is-fluid">
+			<div class="columns">
+				<aside class="column is-4">
+					<div class="box is-fixed">
+						<h2 class="title is-6">Select a Vehicle</h2>
+						<div class="select is-danger is-small">
+							<select>
+								<option>Select Car</option>
+								<option>Hyundai vehicle 001</option>
+								<option>Hyundai vehicle 002</option>
+								<option>Hyundai vehicle 003</option>
+								<option>Hyundai vehicle 004</option>
+							</select>
+						</div>
+						<hr>
+						<h2 class="title is-6">Configure Axle</h2>
+						<div class="select is-small">
+							<select>
+								<option>Front Axle Number</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+						<div class="select is-small">
+							<select>
+								<option>Rear Axle Number</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+						<hr>
+						<h2 class="title is-6">Select a Part</h2>
+						<ul class="select-part">
+							<li class="button">Body</li>
+							<li class="button">Cab</li>
+							<li class="button">Front Suspension</li>
+							<li class="button">Rear Suspension</li>
+						</ul>
+						<hr>
+						<a href="" class="button is-danger"><i class="far fa-trash-alt"></i>Rework</a>
+					</div>
+				</aside>
+
+				<div class="column is-8">
+					<div class="box">
+						<h2 class="title is-4">Load</h2>
+						<div class="field is-horizontal">
+							<div class="field-label is-normal">
+								<label class="label">Cneter of Mass</label>
+							</div>
+							<div class="field-body">
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">x(㎜)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">y(㎜)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">z(㎜)</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="field is-horizontal">
+							<div class="field-label is-normal">
+								<label class="label">Mass</label>
+							</div>
+							<div class="field-body">
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">㎏</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="field is-horizontal">
+							<div class="field-label is-normal">
+								<label class="label">Inertia</label>
+							</div>
+							<div class="field-body">
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Ixx(㎏/㎡)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Iyy(㎏/㎡)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Izz(㎏/㎡)</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="field is-horizontal">
+							<div class="field-label is-normal">
+								<label class="label"></label>
+							</div>
+							<div class="field-body">
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Iyx(㎏/㎡)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Izx(㎏/㎡)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Izy(㎏/㎡)</a>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+						<h2 class="title is-4">Frame</h2>
+						<div class="field is-horizontal">
+							<div class="field-label is-normal">
+								<label class="label">Cneter of Mass</label>
+							</div>
+							<div class="field-body">
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">x(㎜)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">y(㎜)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">z(㎜)</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="field is-horizontal">
+							<div class="field-label is-normal">
+								<label class="label">Mass</label>
+							</div>
+							<div class="field-body">
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">㎏</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="field is-horizontal">
+							<div class="field-label is-normal">
+								<label class="label">Inertia</label>
+							</div>
+							<div class="field-body">
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Ixx(㎏/㎡)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Iyy(㎏/㎡)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Izz(㎏/㎡)</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="field is-horizontal">
+							<div class="field-label is-normal">
+								<label class="label"></label>
+							</div>
+							<div class="field-body">
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Iyx(㎏/㎡)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Izx(㎏/㎡)</a>
+									</p>
+								</div>
+								<div class="field has-addons">
+									<p class="control is-expanded">
+										<input class="input" type="text">
+									</p>
+									<p class="control">
+										<a href="" class="button is-static">Izy(㎏/㎡)</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="level">
+						<div class="level-left">
+							<div class="level-item">
+								<a href="" class="button is-warning"><i class="fas fa-undo-alt"></i>Load Default Data</a>
+							</div>
+						</div>
+						<div class="level-right">
+							<div class="level-item">
+								<a href="./simulation.html" class="button is-link"><i class="fas fa-arrow-right"></i>Next - Configure
+									Simulation</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="container">
+		© Institute of Vehicle Engineering
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous">
+	</script>
+
+	<script>
+		$("a.button").each(function () {
+			$(this).attr("tabindex", "-1");
+		})
+	</script>
+
+</body>
+
+</html>

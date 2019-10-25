@@ -2,102 +2,795 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/bulma.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/all.css">
-    <title>iVH - Predator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- bulma css -->
+	<link rel="stylesheet" href="./css/bulma.min.css">
+	<!-- defualt css -->
+	<link rel="stylesheet" href="./css/styles.css">
+	<!-- fontawesome css -->
+	<link rel="stylesheet" href="./css/all.css">
+	<title>iVH - Predator</title>
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <img src="./img/logo.png" alt="Predator">
-        </div>
-        <ul class="tab">
-            <li class="is-active">
-                <div class="item">
-                    <i class="fas fa-car"></i>
-                    <span>Pre Process</span>
-                </div>
-            </li>
-            <li>
-                <div class="item">
-                    <i class="fas fa-cog"></i>
-                    <span>Simulation</span>
-                </div>
-            </li>
-            <li>
-                <div class="item">
-                    <i class="fas fa-poll"></i>
-                    <span>Post Process</span>
-                </div>
-            </li>
-        </ul>
-        <div class="util">
-            <a href="" class="button is-primary"><i class="fas fa-history"></i>Simulation History</a>
-            <a href="" class="button is-danger"><i class="fas fa-power-off"></i>Logout</a>
-        </div>
-    </nav>
+	<nav>
+		<div class="logo">
+			<img src="./img/logo.png" alt="Predator">
+		</div>
+		<ul class="tab">
+			<li class="is-active">
+				<div class="item">
+					<i class="fas fa-car"></i>
+					<span>Pre Process</span>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<i class="fas fa-cog"></i>
+					<span>Simulation</span>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<i class="fas fa-poll"></i>
+					<span>Post Process</span>
+				</div>
+			</li>
+		</ul>
+		<div class="util">
+			<a href="" class="button is-primary"><i class="fas fa-history"></i>Simulation
+				History</a>
+			<a href="" class="button is-danger"><i class="fas fa-power-off"></i>Logout</a>
+		</div>
+	</nav>
 
-    <section class="section preprocess">
-        <div class="container">
-            <div class="columns">
-                <aside class="column is-4">
-                    <div class="box is-fixed">
-                        <h2 class="title is-6">Select a Vehicle</h2>
-                        <div class="select is-danger is-small">
-                            <select>
-                                <option>Select Car</option>
-                                <option>Hyundai vehicle 001</option>
-                                <option>Hyundai vehicle 002</option>
-                                <option>Hyundai vehicle 003</option>
-                                <option>Hyundai vehicle 004</option>
-                            </select>
-                        </div>
-                        <hr>
-                        <h2 class="title is-6">Configure Axle</h2>
-                        <div class="select is-small">
-                            <select>
-                                <option>Front Axle Number</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-                        </div>
-                        <div class="select is-small">
-                            <select>
-                                <option>Rear Axle Number</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-                        </div>
-                        <hr>
-                        <h2 class="title is-6">Select a Part</h2>
-                        <ul class="select-part">
-                            <li class="button">Body</li>
-                            <li class="button">Cab</li>
-                            <li class="button">Front Axle</li>
-                            <li class="button">Rear Axle</li>
-                        </ul>
-                        <hr>
-                        <a href="./preprocess-body.html" class="button is-success"><i class="fas fa-check"></i>Confirm</a>
-                    </div>
-                </aside>
-                <div class="column is-8">
-                    <div class="box is-waiting">
+	<section class="section preprocess">
+		<div class="container">
+			<div class="columns">
+				<aside class="column is-4">
+					<div class="box is-fixed">
+						<h2 class="title is-6"><i class="far fa-folder-open"></i>Project: test_simulation</h2>
+						<div class="content">
+							<ul class="projectInfo">
+								<li>
+									<div class="item-name">Vehicles</div>
+									<div class="item-value">Truck</div>
+								</li>
+								<li>
+									<div class="item-name">Configure Axle</div>
+									<div class="item-value">Front : 2 / Rear : 2</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="box is-fixed">
+						<h2 class="title is-6"><i class="fas fa-project-diagram"></i>Select a Modeling Sub-system</h2>
+						<ul class="select-part">
+							<li class="button">Body</li>
+							<li class="button">Cab</li>
+							<li class="button">Front Suspension</li>
+							<li class="button">Rear Suspension</li>
+						</ul>
+					</div>
+				</aside>
+
+				<div class="column is-8">
+					<!-- <div class="box is-waiting">
                         <span><i class="far fa-clock"></i>Waiting for left Input</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer class="container">
-        © Institute of Vehicle Engineering
-    </footer>
+                    </div> -->
+
+					<div class="box is-content">
+
+						<h2>Axle Geometry</h2>
+
+						<!-- hard point -->
+						<h3>Hard points, left hand side</h3>
+						<div class="columns">
+							<div class="column">
+
+								<div class="forms input-axle-1">
+									<div class="form-item">
+										<label>r0H_1</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of left hub center, resolved in vehicleFrame</p>
+								</div>
+
+								<div class="forms">
+									<div class="form-item">
+										<label>r0A_1</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of origin of left stabilizer frame, resolved in vehicleFrame</p>
+								</div>
+
+								<div class="forms">
+									<div class="form-item">
+										<label>r0CS_1</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of leaf spring front bushing, resolved in vehicleFrame</p>
+								</div>
+
+								<div class="forms">
+									<div class="form-item">
+										<label>r0PS_1</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of leaf spring mount in shackle, resolved in vehicleFrame</p>
+								</div>
+
+								<div class="forms">
+									<div class="form-item">
+										<label>r0BS_1</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of leaf spring axlemount, resolved in vehicleFrame</p>
+								</div>
+
+								<div class="forms">
+									<div class="form-item">
+										<label>r0CD_1</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of damper mount in chassis, resolved in vehicleFrame</p>
+								</div>
+
+								<div class="forms">
+									<div class="form-item">
+										<label>r0BD_1</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of damper mount at axle, resolved in vehicleFrame</p>
+								</div>
+
+							</div>
+							<div class="column">
+								<img src="./img/rearSuspension_1.png">
+							</div>
+
+						</div>
+
+						<div class="columns">
+							<div class="column">
+								<!-- Initial wheel alignment -->
+								<h3>Initial wheel alignment</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>Toe</label>
+										<div class="input-text" data-unit="deg">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Toe angle(Positive forwards-inwards)</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>Camber</label>
+										<div class="input-text" data-unit="deg">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Camber angle(Positve outwards-upwards)</p>
+								</div>
+							</div>
+							<div class="column">
+								<!-- Shackle parameter -->
+								<h3>Shackle parameter</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>p0P</label>
+										<div class="input-text" data-unit="deg">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Angle of shackles</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>s0P</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Length of shackles</p>
+								</div>
+							</div>
+							<div class="column">
+								<!-- Symmetry -->
+								<h3>Symmetry</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>Scale factor</label>
+										<div class="input-text" data-unit="">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Factor that can be used to scale and mirror hard point locations, this is done befre offsetting</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>Offset</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Offset of hard point locations, this is done after rescaling.</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="box">
+						<h2>Leaf Spring</h2>
+
+						<div class="columns">
+							<div class="column">
+								<h3>Pretension</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>f0</label>
+										<div class="input-text" data-unit="N">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Pretension</p>
+								</div>
+							</div>
+							<div class="column">
+								<h3>General stiffnesses</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>c_v</label>
+										<div class="input-text" data-unit="N/m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Vertical stiffness</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>c_l</label>
+										<div class="input-text" data-unit="N/m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Lateral stiffness</p>
+								</div>
+							</div>
+							<div class="column">
+								<h3>Brushing stiffnesses</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>cS1_x</label>
+										<div class="input-text" data-unit="N/m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Stiffness in x direction of front eye</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>cS1_y</label>
+										<div class="input-text" data-unit="N/m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Stiffness in y direction of front eye</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>cS1_z</label>
+										<div class="input-text" data-unit="N/m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Stiffness in z direction of front eye</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>cS2_y</label>
+										<div class="input-text" data-unit="N/m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Lateral stiffness of shackle</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>cS2_r</label>
+										<div class="input-text" data-unit="N/m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Radial stiffness of shackle</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="columns">
+							<div class="column">
+								<h3>Bushing damping</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>dS1</label>
+										<div class="input-text" data-unit="N·s/m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Damping of front eye bushing</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>dS2_r</label>
+										<div class="input-text" data-unit="N·s/m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Radial damping of shackle</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>dS2_y</label>
+										<div class="input-text" data-unit="N·s/m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Lateral damping of shackle</p>
+								</div>
+							</div>
+							<div class="column">
+								<h3>Internal rotational damping</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>d_l</label>
+										<div class="input-text" data-unit="N·m·s/rad">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Rotational damping around z axis between the five links</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>d_v</label>
+										<div class="input-text" data-unit="N·m·s/rad">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Rotational damping around y axis between the five links</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>internal damping</label>
+										<select name="" id="">
+											<option value="">true</option>
+											<option value="">false</option>
+										</select>
+									</div>
+									<p class="help">Activates internal rotational damping</p>
+								</div>
+							</div>
+							<div class="column">
+								<h3>Twist stiffness</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>c_p</label>
+										<div class="input-text" data-unit="N·m/rad">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Twist stiffness</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="box is-content">
+						<h2 class="title is-6">Damper</h2>
+
+						<div class="columns">
+							<div class="column">
+								<h3>Damper table</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>table size</label>
+										<div class="input-text is-short" data-unit="row">
+											<input type="text">
+										</div>
+										<div class="input-text is-short" data-unit="col">
+											<input type="text">
+										</div>
+										<a class="button is-link">Apply</a>
+									</div>
+								</div>
+								<table class="table is-bordered is-narrow is-striped">
+									<thead>
+										<tr>
+											<th></th>
+											<th>1</th>
+											<th>2</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>
+												<input type="text">
+											</td>
+											<td>
+												<input type="text">
+											</td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>
+												<input type="text">
+											</td>
+											<td>
+												<input type="text">
+											</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>
+												<input type="text">
+											</td>
+											<td>
+												<input type="text">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="column">
+								<img src="./img/rearSuspension_2.png">
+							</div>
+						</div>
+					</div>
+					<div class="box is-content">
+						<h2 class="title is-6">Stabilizer Bar</h2>
+						<h3>Hard point</h3>
+						<div class="columns">
+							<div class="column">
+								<div class="forms">
+									<div class="form-item">
+										<label>r0B</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of axleFrame</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>r0CL_1</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of upper end of left link, resolved in vehicleFrame</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>r0AL_1</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of left link to lever, resolved in vehicleFrame</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>r0AC_1</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of left bar to lever, resolved in vehicleFrame</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>r0CL_2</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of upper end of right link, resoved in vehicleFrame</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>r0AL_2</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of right link to lever, resolved in vehicleFrame</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>r0AC_2</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Position of right bar to lever, resolved in vehicleFrame</p>
+								</div>
+							</div>
+							<div class="column">
+								<img src="./img/rearSuspension_3.png">
+							</div>
+						</div>
+
+						<h3>Stiffness</h3>
+						<div class="forms">
+							<div class="form-item">
+								<label>phi0</label>
+								<div class="input-text" data-unit="deg">
+									<input type="text">
+								</div>
+							</div>
+							<p class="help">Preload angle</p>
+						</div>
+						<div class="forms">
+							<div class="form-item">
+								<label>tau0</label>
+								<div class="input-text" data-unit="N·m">
+									<input type="text">
+								</div>
+							</div>
+							<p class="help">Preload torque</p>
+						</div>
+						<div class="forms">
+							<div class="form-item">
+								<label>c</label>
+								<div class="input-text" data-unit="N·m/rad">
+									<input type="text">
+								</div>
+							</div>
+							<p class="help">Spring rate</p>
+						</div>
+
+					</div>
+					<div class="box is-content">
+						<h2 class="title is-6">Mass</h2>
+						<div class="columns">
+							<div class="column">
+								<h3>Axle</h3>
+								<div class="forms">
+									<div class="form-item">
+										<label>rcm</label>
+										<div class="input-text" data-unit="m">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Vector from axleCarriageFrame to center of mass, resolved in axleCarriageFrame</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>m</label>
+										<div class="input-text" data-unit="kg">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">Mass of rigid body</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>i_11</label>
+										<div class="input-text" data-unit="kg·㎡">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">(1,1) element of inertia tensor</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>i_22</label>
+										<div class="input-text" data-unit="kg·㎡">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">(2,2) element of inertia tensor</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>i_33</label>
+										<div class="input-text" data-unit="kg·㎡">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">(3,3) element of inertia tensor</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>i_21</label>
+										<div class="input-text" data-unit="kg·㎡">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">(2,1) element of inertia tensor</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>i_31</label>
+										<div class="input-text" data-unit="kg·㎡">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">(3,1) element of inertia tensor</p>
+								</div>
+								<div class="forms">
+									<div class="form-item">
+										<label>i_32</label>
+										<div class="input-text" data-unit="kg·㎡">
+											<input type="text">
+										</div>
+									</div>
+									<p class="help">(3,2) element of inertia tensor</p>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+					<div class="level">
+						<div class="level-left">
+							<div class="level-item">
+								<a href="" class="button is-warning"><i class="fas fa-undo-alt"></i>Default Data</a>
+							</div>
+						</div>
+						<div class="level-right">
+							<div class="level-item">
+								<a href="./simulation.html" class="button is-link"><i class="fas fa-arrow-right"></i>Configure Simulation</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="container">
+		© Institute of Vehicle Engineering
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script>
+		var result;
+
+		function xmlToJson(xml) {
+			'use strict';
+			// Create the return object
+			var obj = {},
+				i, j, attribute, item, nodeName, old;
+
+			if (xml.nodeType === 1) { // element
+				// do attributes
+				if (xml.attributes.length > 0) {
+					obj["@attributes"] = {};
+					for (j = 0; j < xml.attributes.length; j = j + 1) {
+						attribute = xml.attributes.item(j);
+						obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+					}
+				}
+			} else if (xml.nodeType === 3) { // text
+				obj = xml.nodeValue;
+			}
+
+			// do children
+			if (xml.hasChildNodes()) {
+				for (i = 0; i < xml.childNodes.length; i = i + 1) {
+					item = xml.childNodes.item(i);
+					nodeName = item.nodeName;
+					if ((obj[nodeName]) === undefined) {
+						obj[nodeName] = xmlToJson(item);
+					} else {
+						if ((obj[nodeName].push) === undefined) {
+							old = obj[nodeName];
+							obj[nodeName] = [];
+							obj[nodeName].push(old);
+						}
+						obj[nodeName].push(xmlToJson(item));
+					}
+				}
+			}
+			return obj;
+		};
+
+		$(function getJfPromos() {
+			'use strict';
+			var jsonText;
+			$.ajax({
+				url: "./data/rear.xml",
+				async: false,
+				dataType: 'xml',
+				error: function (jqXHR, textStatus, errorThrown) {
+					// Handle the error event
+					$('#footerText').text(textStatus + "; " + errorThrown);
+				},
+				success: function (data) {
+					jsonText = JSON.stringify(xmlToJson($(data)[0]));
+					result = JSON.parse(jsonText);
+
+				}
+			});
+		})
+
+		$(function () {
+			console.log(result.suspension.axle.hardpoint.r0B["#text"]);
+			$("#test01").val(result.suspension.axle.hardpoint.r0B["#text"]);
+
+			// tab: 버튼 포커싱 방지
+			$("a.button").each(function () {
+				$(this).attr("tabindex", "-1");
+			})
+
+			// select-part 클릭 액션
+			$(".select-part > li").click(function () {
+				$(".select-part > li").removeClass("is-link");
+				$(this).addClass("is-link");
+			})
+		})
+	</script>
 
 </body>
 
