@@ -51,16 +51,16 @@
 			<div class="columns">
 				<aside class="column is-4">
 					<div class="box is-fixed">
-						<h2 class="title is-6"><i class="far fa-folder-open"></i>Project: test_simulation</h2>
+						<h2 class="title is-6"><i class="far fa-folder-open"></i>Project: <span name="title"></span></h2>
 						<div class="content">
 							<ul class="projectInfo">
 								<li>
 									<div class="item-name">Vehicles</div>
-									<div class="item-value">Truck</div>
+									<div class="item-value" name="type"></div>
 								</li>
 								<li>
 									<div class="item-name">Configure Axle</div>
-									<div class="item-value">Front : 2 / Rear : 2</div>
+									<div class="item-value">Front : <span name="frontAxle"></span> / Rear : <span name="rearAxle"></span></div>
 								</li>
 							</ul>
 						</div>
@@ -77,10 +77,11 @@
 				</aside>
 
 				<div class="column is-8">
-					<!-- <div class="box is-waiting">
-                        <span><i class="far fa-clock"></i>Waiting for left Input</span>
-                    </div> -->
-
+					<div class="box is-waiting">
+                        <span><i class="fas fa-spinner"></i>Waiting</span>
+                    </div>
+				</div>
+				<div class="column is-8 preprocess-items is-hidden">
 					<div class="box is-content">
 
 						<h2>Axle Geometry</h2>
@@ -715,69 +716,16 @@
 
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 	<script>
-		var result;
-
-		function xmlToJson(xml) {
-			'use strict';
-			// Create the return object
-			var obj = {},
-				i, j, attribute, item, nodeName, old;
-
-			if (xml.nodeType === 1) { // element
-				// do attributes
-				if (xml.attributes.length > 0) {
-					obj["@attributes"] = {};
-					for (j = 0; j < xml.attributes.length; j = j + 1) {
-						attribute = xml.attributes.item(j);
-						obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
-					}
-				}
-			} else if (xml.nodeType === 3) { // text
-				obj = xml.nodeValue;
-			}
-
-			// do children
-			if (xml.hasChildNodes()) {
-				for (i = 0; i < xml.childNodes.length; i = i + 1) {
-					item = xml.childNodes.item(i);
-					nodeName = item.nodeName;
-					if ((obj[nodeName]) === undefined) {
-						obj[nodeName] = xmlToJson(item);
-					} else {
-						if ((obj[nodeName].push) === undefined) {
-							old = obj[nodeName];
-							obj[nodeName] = [];
-							obj[nodeName].push(old);
-						}
-						obj[nodeName].push(xmlToJson(item));
-					}
-				}
-			}
-			return obj;
-		};
-
-		$(function getJfPromos() {
-			'use strict';
-			var jsonText;
-			$.ajax({
-				url: "./data/rear.xml",
-				async: false,
-				dataType: 'xml',
-				error: function (jqXHR, textStatus, errorThrown) {
-					// Handle the error event
-					$('#footerText').text(textStatus + "; " + errorThrown);
-				},
-				success: function (data) {
-					jsonText = JSON.stringify(xmlToJson($(data)[0]));
-					result = JSON.parse(jsonText);
-
-				}
-			});
-		})
-
 		$(function () {
-			console.log(result.suspension.axle.hardpoint.r0B["#text"]);
-			$("#test01").val(result.suspension.axle.hardpoint.r0B["#text"]);
+			
+			// 로컬스토리지 로드
+			var project = JSON.parse(localStorage.project);
+			console.log(project);
+			
+			$("[name=title]").text(project.info.title);
+			$("[name=type]").text(project.info.type);
+			$("[name=frontAxle]").text(project.info.frontAxle);
+			$("[name=rearAxle]").text(project.info.rearAxle);
 
 			// tab: 버튼 포커싱 방지
 			$("a.button").each(function () {

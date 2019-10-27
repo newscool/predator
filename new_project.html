@@ -52,7 +52,7 @@
                         <div class="field">
                             <label class="label">Project Title</label>
                             <div class="control">
-                                <input class="input is-small" type="text" placeholder="Inpu Project Title">
+                                <input name="title" class="input is-small" type="text" placeholder="Inpu Project Title">
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@
                             <label class="label">Vehicles</label>
                             <div class="control">
                                 <div class="select is-small">
-                                    <select>
+                                    <select name="type">
                                         <option>Select Car</option>
                                         <option>Truck</option>
                                         <option>Bus</option>
@@ -74,7 +74,7 @@
                             <label class="label">Configure Axle</label>
                             <div class="control">
                                 <div class="select is-small">
-                                    <select>
+                                    <select name="frontAxle">
                                         <option>Front Axle Number</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -82,7 +82,7 @@
                                     </select>
                                 </div>
                                 <div class="select is-small">
-                                    <select>
+                                    <select name="rearAxle">
                                         <option>Rear Axle Number</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -95,7 +95,7 @@
                         <hr>
 
                         <div class="buttons is-centered">
-                            <a href="./preprocess.html" class="button is-link"><i class="fas fa-check"></i>Make Project</a>
+                            <a href="./preprocess.html" class="button button-next is-link"><i class="fas fa-check"></i>Make Project</a>
                         </div>
                     </div>
                 </aside>
@@ -109,6 +109,37 @@
             © Institute of Vehicle Engineering
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+
+            // 프로젝트 데이터 초기화
+            var project = {
+                info: {
+                    title: "",
+                    type: "",
+                    frontAxle: "",
+                    rearAxle: "",
+                }
+            }
+
+            // input, select 입력시 프로젝트 데이터 할당
+            $("input, select").on("change", function() {
+                var name = $(this).attr("name");
+                project.info[name] = $(this).val();
+                console.log(project);
+            })
+
+            // Nmake project 버튼 클릭시 로컬스토리지에 저장
+            $(".button-next").click(function(e) {
+                e.preventDefault();
+                localStorage.setItem('project', JSON.stringify(project));
+                location.href = "./preprocess.html";
+            })
+        })
+    </script>
 
 </body>
 
