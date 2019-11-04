@@ -37,7 +37,6 @@
 			</li>
 		</ul>
 		<div class="util">
-			<a href="" class="button is-primary"><i class="fas fa-history"></i>Simulation History</a>
 			<a href="" class="button is-danger"><i class="fas fa-power-off"></i>Logout</a>
 		</div>
 	</nav>
@@ -47,16 +46,20 @@
 			<div class="columns">
 				<aside class="column is-4">
 					<div class="box is-fixed">
-						<h2 class="title is-6"><i class="far fa-folder-open"></i>Project: test_simulation</h2>
+						<h2 class="title is-6"><i class="far fa-folder-open"></i>Project: <span name="title"></span></h2>
 						<div class="content">
 							<ul class="projectInfo">
 								<li>
+									<div class="item-name">Simulation Type</div>
+									<div class="item-value" name="simulation_type"></div>
+								</li>
+								<li>
 									<div class="item-name">Vehicles</div>
-									<div class="item-value">Truck</div>
+									<div class="item-value" name="vehicle_type"></div>
 								</li>
 								<li>
 									<div class="item-name">Configure Axle</div>
-									<div class="item-value">Front : 2 / Rear : 2</div>
+									<div class="item-value">Front : <span name="frontAxle"></span> / Rear : <span name="rearAxle"></span></div>
 								</li>
 							</ul>
 						</div>
@@ -69,12 +72,12 @@
 						<h3>
 							<label>
 								<input type="checkbox" checked>
-								<span>Parallel Wheel Travel</span>
+								<span>Kinemetic - Vertical Parallel</span>
 							</label>
 						</h3>
 						<div class="forms">
 							<div class="forms-body is-small">
-								<label>vertical hub Position</label>
+								<label>Wheel Stroke</label>
 								<div class="input-text" data-unit="m">
 									<input type="text">
 								</div>
@@ -85,12 +88,12 @@
 						<h3>
 							<label>
 								<input type="checkbox" checked>
-								<span>Opposite Wheel Travel</span>
+								<span>Kinemetic - Vertical Opposite</span>
 							</label>
 						</h3>
 						<div class="forms">
 							<div class="forms-body is-small">
-								<label>vertical hub Position</label>
+								<label>Wheel Stroke</label>
 								<div class="input-text" data-unit="m">
 									<input type="text">
 								</div>
@@ -101,12 +104,12 @@
 						<h3>
 							<label>
 								<input type="checkbox" checked>
-								<span>Opposite Wheel Travel</span>
+								<span>Compliance - Lateral Mode - Opposite</span>
 							</label>
 						</h3>
 						<div class="forms">
 							<div class="forms-body is-small">
-								<label>vertical hub Position</label>
+								<label>Lateral Force</label>
 								<div class="input-text" data-unit="m">
 									<input type="text">
 								</div>
@@ -117,12 +120,12 @@
 						<h3>
 							<label>
 								<input type="checkbox" checked>
-								<span>Opposite Wheel Travel</span>
+								<span>Compliance - Lateral Mode - Parallel</span>
 							</label>
 						</h3>
 						<div class="forms">
 							<div class="forms-body is-small">
-								<label>vertical hub Position</label>
+								<label>Lateral Force</label>
 								<div class="input-text" data-unit="m">
 									<input type="text">
 								</div>
@@ -133,12 +136,12 @@
 						<h3>
 							<label>
 								<input type="checkbox" checked>
-								<span>Opposite Wheel Travel</span>
+								<span>Compliance - Toe Opposite</span>
 							</label>
 						</h3>
 						<div class="forms">
 							<div class="forms-body is-small">
-								<label>vertical hub Position</label>
+								<label>Aligning Moment</label>
 								<div class="input-text" data-unit="m">
 									<input type="text">
 								</div>
@@ -149,12 +152,12 @@
 						<h3>
 							<label>
 								<input type="checkbox" checked>
-								<span>Opposite Wheel Travel</span>
+								<span>Compliance - Toe Parallel</span>
 							</label>
 						</h3>
 						<div class="forms">
 							<div class="forms-body is-small">
-								<label>vertical hub Position</label>
+								<label>Aligning Moment</label>
 								<div class="input-text" data-unit="m">
 									<input type="text">
 								</div>
@@ -165,28 +168,12 @@
 						<h3>
 							<label>
 								<input type="checkbox" checked>
-								<span>Opposite Wheel Travel</span>
+								<span>Compliance - Fore & Aft Mode</span>
 							</label>
 						</h3>
 						<div class="forms">
 							<div class="forms-body is-small">
-								<label>vertical hub Position</label>
-								<div class="input-text" data-unit="m">
-									<input type="text">
-								</div>
-							</div>
-							<p class="help">Position of origin of left stabilizer frame, resolved in vehicleFrame</p>
-						</div>
-						<hr>
-						<h3>
-							<label>
-								<input type="checkbox" checked>
-								<span>Opposite Wheel Travel</span>
-							</label>
-						</h3>
-						<div class="forms">
-							<div class="forms-body is-small">
-								<label>vertical hub Position</label>
+								<label>Longitudinal Force</label>
 								<div class="input-text" data-unit="m">
 									<input type="text">
 								</div>
@@ -210,85 +197,27 @@
 			</div>
 		</div>
 	</section>
-	<footer class="container">
-		© Institute of Vehicle Engineering
+
+	<footer class="footer">
+		<div class="container">
+			© Institute of Vehicle Engineering
+		</div>
 	</footer>
 
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 	<script>
-		var result;
-
-		function xmlToJson(xml) {
-			'use strict';
-			// Create the return object
-			var obj = {},
-				i, j, attribute, item, nodeName, old;
-
-			if (xml.nodeType === 1) { // element
-				// do attributes
-				if (xml.attributes.length > 0) {
-					obj["@attributes"] = {};
-					for (j = 0; j < xml.attributes.length; j = j + 1) {
-						attribute = xml.attributes.item(j);
-						obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
-					}
-				}
-			} else if (xml.nodeType === 3) { // text
-				obj = xml.nodeValue;
-			}
-
-			// do children
-			if (xml.hasChildNodes()) {
-				for (i = 0; i < xml.childNodes.length; i = i + 1) {
-					item = xml.childNodes.item(i);
-					nodeName = item.nodeName;
-					if ((obj[nodeName]) === undefined) {
-						obj[nodeName] = xmlToJson(item);
-					} else {
-						if ((obj[nodeName].push) === undefined) {
-							old = obj[nodeName];
-							obj[nodeName] = [];
-							obj[nodeName].push(old);
-						}
-						obj[nodeName].push(xmlToJson(item));
-					}
-				}
-			}
-			return obj;
-		};
-
-		$(function getJfPromos() {
-			'use strict';
-			var jsonText;
-			$.ajax({
-				url: "./data/rear.xml",
-				async: false,
-				dataType: 'xml',
-				error: function (jqXHR, textStatus, errorThrown) {
-					// Handle the error event
-					$('#footerText').text(textStatus + "; " + errorThrown);
-				},
-				success: function (data) {
-					jsonText = JSON.stringify(xmlToJson($(data)[0]));
-					result = JSON.parse(jsonText);
-				}
-			});
-		})
-
 		$(function () {
 
-			$(".input-axle-1 input").val(result.suspension.axle.hardpoint.r0H_1["#text"]);
+			// 로컬스토리지 로드
+			var project = JSON.parse(localStorage.project);
 
-			// tab: 버튼 포커싱 방지
-			$("a.button").each(function () {
-				$(this).attr("tabindex", "-1");
-			})
+			// 정보창 셋팅
+			$("[name=title]").text(project.info.title);
+			$("[name=vehicle_type]").text(project.info.vehicle_type);
+			$("[name=simulation_type]").text(project.info.simulation_type);
+			$("[name=frontAxle]").text(project.info.frontAxle);
+			$("[name=rearAxle]").text(project.info.rearAxle);
 
-			// select-part 클릭 액션
-			$(".select-part > li").click(function () {
-				$(".select-part > li").removeClass("is-link");
-				$(this).addClass("is-link");
-			})
 		})
 	</script>
 

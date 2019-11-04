@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="./css/styles.css">
 	<!-- fontawesome css -->
 	<link rel="stylesheet" href="./css/all.css">
+	<link rel="stylesheet" href="./css/c3.css">
 	<title>iVH - Predator</title>
 </head>
 
@@ -40,8 +41,6 @@
 			</li>
 		</ul>
 		<div class="util">
-			<a href="" class="button is-primary"><i class="fas fa-history"></i>Simulation
-				History</a>
 			<a href="" class="button is-danger"><i class="fas fa-power-off"></i>Logout</a>
 		</div>
 	</nav>
@@ -55,8 +54,12 @@
 						<div class="content">
 							<ul class="projectInfo">
 								<li>
+									<div class="item-name">Simulation Type</div>
+									<div class="item-value" name="simulation_type"></div>
+								</li>
+								<li>
 									<div class="item-name">Vehicles</div>
-									<div class="item-value" name="type"></div>
+									<div class="item-value" name="vehicle_type"></div>
 								</li>
 								<li>
 									<div class="item-name">Configure Axle</div>
@@ -74,34 +77,33 @@
 							<li class="button">Rear Suspension</li>
 						</ul>
 					</div>
+					<pre id="output"></pre>
 				</aside>
 
 				<div class="column is-8">
 					<div class="box is-waiting">
-                        <span><i class="fas fa-spinner"></i>Waiting</span>
-                    </div>
+						<span><i class="fas fa-spinner"></i>Waiting</span>
+					</div>
 				</div>
 				<div class="column is-8 preprocess-items is-hidden">
 					<div class="box is-content">
 
 						<h2>Axle Geometry</h2>
-
 						<!-- hard point -->
-						<h3>Hard points, left hand side</h3>
 						<div class="columns">
 							<div class="column">
-
+								<h3>Hard points, left hand side</h3>
 								<div class="forms input-axle-1">
 									<div class="form-item">
 										<label>r0H_1</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0H_1_0">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0H_1_1">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0H_1_2">
 										</div>
 									</div>
 									<p class="help">Position of left hub center, resolved in vehicleFrame</p>
@@ -111,13 +113,13 @@
 									<div class="form-item">
 										<label>r0A_1</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0A_1_0">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0A_1_1">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0A_1_2">
 										</div>
 									</div>
 									<p class="help">Position of origin of left stabilizer frame, resolved in vehicleFrame</p>
@@ -127,13 +129,13 @@
 									<div class="form-item">
 										<label>r0CS_1</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0CS_1_0">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0CS_1_1">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0CS_1_2">
 										</div>
 									</div>
 									<p class="help">Position of leaf spring front bushing, resolved in vehicleFrame</p>
@@ -143,13 +145,13 @@
 									<div class="form-item">
 										<label>r0PS_1</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0PS_1_0">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0PS_1_1">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0PS_1_2">
 										</div>
 									</div>
 									<p class="help">Position of leaf spring mount in shackle, resolved in vehicleFrame</p>
@@ -159,13 +161,13 @@
 									<div class="form-item">
 										<label>r0BS_1</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0BS_1_0">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0BS_1_1">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0BS_1_2">
 										</div>
 									</div>
 									<p class="help">Position of leaf spring axlemount, resolved in vehicleFrame</p>
@@ -175,13 +177,13 @@
 									<div class="form-item">
 										<label>r0CD_1</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0CD_1_0">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0CD_1_1">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0CD_1_2">
 										</div>
 									</div>
 									<p class="help">Position of damper mount in chassis, resolved in vehicleFrame</p>
@@ -191,13 +193,13 @@
 									<div class="form-item">
 										<label>r0BD_1</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0BD_1_0">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0BD_1_1">
 										</div>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0BD_1_2">
 										</div>
 									</div>
 									<p class="help">Position of damper mount at axle, resolved in vehicleFrame</p>
@@ -218,7 +220,7 @@
 									<div class="form-item">
 										<label>Toe</label>
 										<div class="input-text" data-unit="deg">
-											<input type="text">
+											<input type="text" name="Toe">
 										</div>
 									</div>
 									<p class="help">Toe angle(Positive forwards-inwards)</p>
@@ -227,7 +229,7 @@
 									<div class="form-item">
 										<label>Camber</label>
 										<div class="input-text" data-unit="deg">
-											<input type="text">
+											<input type="text" name="Camber">
 										</div>
 									</div>
 									<p class="help">Camber angle(Positve outwards-upwards)</p>
@@ -240,7 +242,7 @@
 									<div class="form-item">
 										<label>p0P</label>
 										<div class="input-text" data-unit="deg">
-											<input type="text">
+											<input type="text" name="p0P">
 										</div>
 									</div>
 									<p class="help">Angle of shackles</p>
@@ -249,7 +251,7 @@
 									<div class="form-item">
 										<label>s0P</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="s0P">
 										</div>
 									</div>
 									<p class="help">Length of shackles</p>
@@ -262,7 +264,7 @@
 									<div class="form-item">
 										<label>Scale factor</label>
 										<div class="input-text" data-unit="">
-											<input type="text">
+											<input type="text" name="Scale_factor">
 										</div>
 									</div>
 									<p class="help">Factor that can be used to scale and mirror hard point locations, this is done befre offsetting</p>
@@ -271,7 +273,7 @@
 									<div class="form-item">
 										<label>Offset</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="Offset">
 										</div>
 									</div>
 									<p class="help">Offset of hard point locations, this is done after rescaling.</p>
@@ -291,7 +293,7 @@
 									<div class="form-item">
 										<label>f0</label>
 										<div class="input-text" data-unit="N">
-											<input type="text">
+											<input type="text" name="f0">
 										</div>
 									</div>
 									<p class="help">Pretension</p>
@@ -303,7 +305,7 @@
 									<div class="form-item">
 										<label>c_v</label>
 										<div class="input-text" data-unit="N/m">
-											<input type="text">
+											<input type="text" name="c_v">
 										</div>
 									</div>
 									<p class="help">Vertical stiffness</p>
@@ -312,7 +314,7 @@
 									<div class="form-item">
 										<label>c_l</label>
 										<div class="input-text" data-unit="N/m">
-											<input type="text">
+											<input type="text" name="c_l">
 										</div>
 									</div>
 									<p class="help">Lateral stiffness</p>
@@ -324,7 +326,7 @@
 									<div class="form-item">
 										<label>cS1_x</label>
 										<div class="input-text" data-unit="N/m">
-											<input type="text">
+											<input type="text" name="cS1_x">
 										</div>
 									</div>
 									<p class="help">Stiffness in x direction of front eye</p>
@@ -333,7 +335,7 @@
 									<div class="form-item">
 										<label>cS1_y</label>
 										<div class="input-text" data-unit="N/m">
-											<input type="text">
+											<input type="text" name="cS1_y">
 										</div>
 									</div>
 									<p class="help">Stiffness in y direction of front eye</p>
@@ -342,7 +344,7 @@
 									<div class="form-item">
 										<label>cS1_z</label>
 										<div class="input-text" data-unit="N/m">
-											<input type="text">
+											<input type="text" name="cS1_z">
 										</div>
 									</div>
 									<p class="help">Stiffness in z direction of front eye</p>
@@ -351,7 +353,7 @@
 									<div class="form-item">
 										<label>cS2_y</label>
 										<div class="input-text" data-unit="N/m">
-											<input type="text">
+											<input type="text" name="cS2_y">
 										</div>
 									</div>
 									<p class="help">Lateral stiffness of shackle</p>
@@ -360,7 +362,7 @@
 									<div class="form-item">
 										<label>cS2_r</label>
 										<div class="input-text" data-unit="N/m">
-											<input type="text">
+											<input type="text" name="cS2_r">
 										</div>
 									</div>
 									<p class="help">Radial stiffness of shackle</p>
@@ -375,7 +377,7 @@
 									<div class="form-item">
 										<label>dS1</label>
 										<div class="input-text" data-unit="N·s/m">
-											<input type="text">
+											<input type="text" name="dS1">
 										</div>
 									</div>
 									<p class="help">Damping of front eye bushing</p>
@@ -384,7 +386,7 @@
 									<div class="form-item">
 										<label>dS2_r</label>
 										<div class="input-text" data-unit="N·s/m">
-											<input type="text">
+											<input type="text" name="dS2_r">
 										</div>
 									</div>
 									<p class="help">Radial damping of shackle</p>
@@ -393,7 +395,7 @@
 									<div class="form-item">
 										<label>dS2_y</label>
 										<div class="input-text" data-unit="N·s/m">
-											<input type="text">
+											<input type="text" name="dS2_y">
 										</div>
 									</div>
 									<p class="help">Lateral damping of shackle</p>
@@ -405,7 +407,7 @@
 									<div class="form-item">
 										<label>d_l</label>
 										<div class="input-text" data-unit="N·m·s/rad">
-											<input type="text">
+											<input type="text" name="d_l">
 										</div>
 									</div>
 									<p class="help">Rotational damping around z axis between the five links</p>
@@ -414,7 +416,7 @@
 									<div class="form-item">
 										<label>d_v</label>
 										<div class="input-text" data-unit="N·m·s/rad">
-											<input type="text">
+											<input type="text" name="d_v">
 										</div>
 									</div>
 									<p class="help">Rotational damping around y axis between the five links</p>
@@ -436,7 +438,7 @@
 									<div class="form-item">
 										<label>c_p</label>
 										<div class="input-text" data-unit="N·m/rad">
-											<input type="text">
+											<input type="text" name="c_p">
 										</div>
 									</div>
 									<p class="help">Twist stiffness</p>
@@ -449,74 +451,38 @@
 						<h2 class="title is-6">Damper</h2>
 
 						<div class="columns">
-							<div class="column">
+							<div class="column is-7">
 								<h3>Damper table</h3>
 								<div class="forms">
 									<div class="form-item">
 										<label>table size</label>
 										<div class="input-text is-short" data-unit="row">
-											<input type="text">
+											<input class="makeTable-row" type="text">
 										</div>
 										<div class="input-text is-short" data-unit="col">
-											<input type="text">
+											<input class="makeTable-col" type="text">
 										</div>
-										<a class="button is-link">Apply</a>
+										<a class="button js-button-makeTable is-link">Apply</a>
 									</div>
 								</div>
-								<table class="table is-bordered is-narrow is-striped">
-									<thead>
-										<tr>
-											<th></th>
-											<th>1</th>
-											<th>2</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>1</td>
-											<td>
-												<input type="text">
-											</td>
-											<td>
-												<input type="text">
-											</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>
-												<input type="text">
-											</td>
-											<td>
-												<input type="text">
-											</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>
-												<input type="text">
-											</td>
-											<td>
-												<input type="text">
-											</td>
-										</tr>
-									</tbody>
-								</table>
+								<div class="damper-table"></div>
+								<a class="button js-button-makeGraph is-success is-small">Make Graph</a>
 							</div>
-							<div class="column">
-								<img src="./img/rearSuspension_2.png">
+							<div class="column is-5">
+								<div id="damper-graph"></div>
 							</div>
 						</div>
 					</div>
 					<div class="box is-content">
 						<h2 class="title is-6">Stabilizer Bar</h2>
-						<h3>Hard point</h3>
 						<div class="columns">
 							<div class="column">
+								<h3>Hard point</h3>
 								<div class="forms">
 									<div class="form-item">
 										<label>r0B</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0B">
 										</div>
 									</div>
 									<p class="help">Position of axleFrame</p>
@@ -525,7 +491,7 @@
 									<div class="form-item">
 										<label>r0CL_1</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0CL_1">
 										</div>
 									</div>
 									<p class="help">Position of upper end of left link, resolved in vehicleFrame</p>
@@ -534,7 +500,7 @@
 									<div class="form-item">
 										<label>r0AL_1</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0AL_1">
 										</div>
 									</div>
 									<p class="help">Position of left link to lever, resolved in vehicleFrame</p>
@@ -543,7 +509,7 @@
 									<div class="form-item">
 										<label>r0AC_1</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0AC_1">
 										</div>
 									</div>
 									<p class="help">Position of left bar to lever, resolved in vehicleFrame</p>
@@ -552,7 +518,7 @@
 									<div class="form-item">
 										<label>r0CL_2</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0CL_2">
 										</div>
 									</div>
 									<p class="help">Position of upper end of right link, resoved in vehicleFrame</p>
@@ -561,7 +527,7 @@
 									<div class="form-item">
 										<label>r0AL_2</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0AL_2">
 										</div>
 									</div>
 									<p class="help">Position of right link to lever, resolved in vehicleFrame</p>
@@ -570,7 +536,7 @@
 									<div class="form-item">
 										<label>r0AC_2</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="r0AC_2">
 										</div>
 									</div>
 									<p class="help">Position of right bar to lever, resolved in vehicleFrame</p>
@@ -586,7 +552,7 @@
 							<div class="form-item">
 								<label>phi0</label>
 								<div class="input-text" data-unit="deg">
-									<input type="text">
+									<input type="text" name="phi0">
 								</div>
 							</div>
 							<p class="help">Preload angle</p>
@@ -595,7 +561,7 @@
 							<div class="form-item">
 								<label>tau0</label>
 								<div class="input-text" data-unit="N·m">
-									<input type="text">
+									<input type="text" name="tau0">
 								</div>
 							</div>
 							<p class="help">Preload torque</p>
@@ -604,7 +570,7 @@
 							<div class="form-item">
 								<label>c</label>
 								<div class="input-text" data-unit="N·m/rad">
-									<input type="text">
+									<input type="text" name="c">
 								</div>
 							</div>
 							<p class="help">Spring rate</p>
@@ -620,7 +586,7 @@
 									<div class="form-item">
 										<label>rcm</label>
 										<div class="input-text" data-unit="m">
-											<input type="text">
+											<input type="text" name="rcm">
 										</div>
 									</div>
 									<p class="help">Vector from axleCarriageFrame to center of mass, resolved in axleCarriageFrame</p>
@@ -629,7 +595,7 @@
 									<div class="form-item">
 										<label>m</label>
 										<div class="input-text" data-unit="kg">
-											<input type="text">
+											<input type="text" name="m">
 										</div>
 									</div>
 									<p class="help">Mass of rigid body</p>
@@ -638,7 +604,7 @@
 									<div class="form-item">
 										<label>i_11</label>
 										<div class="input-text" data-unit="kg·㎡">
-											<input type="text">
+											<input type="text" name="i_11">
 										</div>
 									</div>
 									<p class="help">(1,1) element of inertia tensor</p>
@@ -647,7 +613,7 @@
 									<div class="form-item">
 										<label>i_22</label>
 										<div class="input-text" data-unit="kg·㎡">
-											<input type="text">
+											<input type="text" name="i_22">
 										</div>
 									</div>
 									<p class="help">(2,2) element of inertia tensor</p>
@@ -656,7 +622,7 @@
 									<div class="form-item">
 										<label>i_33</label>
 										<div class="input-text" data-unit="kg·㎡">
-											<input type="text">
+											<input type="text" name="i_33">
 										</div>
 									</div>
 									<p class="help">(3,3) element of inertia tensor</p>
@@ -665,7 +631,7 @@
 									<div class="form-item">
 										<label>i_21</label>
 										<div class="input-text" data-unit="kg·㎡">
-											<input type="text">
+											<input type="text" name="i_21">
 										</div>
 									</div>
 									<p class="help">(2,1) element of inertia tensor</p>
@@ -674,7 +640,7 @@
 									<div class="form-item">
 										<label>i_31</label>
 										<div class="input-text" data-unit="kg·㎡">
-											<input type="text">
+											<input type="text" name="i_31">
 										</div>
 									</div>
 									<p class="help">(3,1) element of inertia tensor</p>
@@ -683,7 +649,7 @@
 									<div class="form-item">
 										<label>i_32</label>
 										<div class="input-text" data-unit="kg·㎡">
-											<input type="text">
+											<input type="text" name="i_32">
 										</div>
 									</div>
 									<p class="help">(3,2) element of inertia tensor</p>
@@ -697,7 +663,7 @@
 					<div class="level">
 						<div class="level-left">
 							<div class="level-item">
-								<a href="" class="button is-warning"><i class="fas fa-undo-alt"></i>Default Data</a>
+								<!-- <a href="" class="button is-warning"><i class="fas fa-undo-alt"></i>Default Data</a> -->
 							</div>
 						</div>
 						<div class="level-right">
@@ -710,22 +676,195 @@
 			</div>
 		</div>
 	</section>
-	<footer class="container">
-		© Institute of Vehicle Engineering
+
+	<footer class="footer">
+		<div class="container">
+			© Institute of Vehicle Engineering
+		</div>
 	</footer>
 
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="./js/jquery-3.4.1.min.js"></script>
+	<script src="./js/bind.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"></script>
+	<script src="./js/c3.js"></script>
+
+	<script>
+		var getUrl = "./data/rearHardpoints2.json";
+
+		function getData() {
+			return new Promise(function (resolve, reject) {
+				$.getJSON(getUrl, function (response) {
+					if (response) {
+						resolve(response);
+					}
+					reject(new Error("failed"));
+				})
+			})
+		}
+
+		getData().then(function (data) {
+			var defaultData = data.rearSuspension;
+			var rearSuspension = Bind({
+				data: {
+					r0H_1: defaultData.r0H_1,
+					r0A_1: defaultData.r0A_1,
+					r0CS_1: defaultData.r0CS_1,
+					r0PS_1: defaultData.r0PS_1,
+					r0BS_1: defaultData.r0BS_1,
+					r0CD_1: defaultData.r0CD_1,
+					r0BD_1: defaultData.r0BD_1,
+
+					Toe: defaultData.Toe,
+					Camber: defaultData.Camber,
+					p0P: defaultData.p0P,
+					s0P: defaultData.s0P,
+					Scale_factor: defaultData.Scale_factor,
+					Offset: defaultData.Offset,
+
+					f0: defaultData.f0,
+					c_v: defaultData.c_v,
+					c_l: defaultData.c_l,
+					cS1_x: defaultData.cS1_x,
+					cS1_y: defaultData.cS1_y,
+					cS1_z: defaultData.cS1_z,
+					cS2_y: defaultData.cS2_y,
+					cS2_r: defaultData.cS2_r,
+
+					dS1: defaultData.dS1,
+					dS2_r: defaultData.dS2_r,
+					dS2_y: defaultData.dS2_y,
+					d_l: defaultData.d_l,
+					d_v: defaultData.d_v,
+					internal_damping: defaultData.internal_damping,
+					c_p: defaultData.c_p,
+
+					r0B: defaultData.r0B,
+					r0CL_1: defaultData.r0CL_1,
+					r0AL_1: defaultData.r0AL_1,
+					r0AC_1: defaultData.r0AC_1,
+					r0CL_2: defaultData.r0CL_2,
+					r0AL_2: defaultData.r0AL_2,
+					r0AC_2: defaultData.r0AC_2,
+
+					phi0: defaultData.phi0,
+					tau0: defaultData.tau0,
+					c: defaultData.c,
+
+					rcm: defaultData.rcm,
+					m: defaultData.m,
+					i_11: defaultData.i_11,
+					i_22: defaultData.i_22,
+					i_33: defaultData.i_33,
+					i_21: defaultData.i_21,
+					i_31: defaultData.i_31,
+					i_32: defaultData.i_32,
+				}
+			}, {
+				data: {
+					callback: function () {
+						document.querySelector('#output').innerHTML = escape(JSON.stringify(this.__export(), '', 2));
+					},
+				},
+				'data.r0H_1.0': '[name=r0H_1_0]',
+				'data.r0H_1.1': '[name=r0H_1_1]',
+				'data.r0H_1.2': '[name=r0H_1_2]',
+				'data.r0A_1.0': '[name=r0A_1_0]',
+				'data.r0A_1.1': '[name=r0A_1_1]',
+				'data.r0A_1.2': '[name=r0A_1_2]',
+				'data.r0CS_1.0': '[name=r0CS_1_0]',
+				'data.r0CS_1.1': '[name=r0CS_1_1]',
+				'data.r0CS_1.2': '[name=r0CS_1_2]',
+				'data.r0PS_1.0': '[name=r0PS_1_0]',
+				'data.r0PS_1.1': '[name=r0PS_1_1]',
+				'data.r0PS_1.2': '[name=r0PS_1_2]',
+				'data.r0BS_1.0': '[name=r0BS_1_0]',
+				'data.r0BS_1.1': '[name=r0BS_1_1]',
+				'data.r0BS_1.2': '[name=r0BS_1_2]',
+				'data.r0CD_1.0': '[name=r0CD_1_0]',
+				'data.r0CD_1.1': '[name=r0CD_1_1]',
+				'data.r0CD_1.2': '[name=r0CD_1_2]',
+				'data.r0BD_1.0': '[name=r0BD_1_0]',
+				'data.r0BD_1.1': '[name=r0BD_1_1]',
+				'data.r0BD_1.2': '[name=r0BD_1_2]',
+
+				'data.Toe': '[name=Toe]',
+				'data.Camber': '[name=Camber]',
+				'data.p0P': '[name=p0P]',
+				'data.s0P': '[name=s0P]',
+				'data.Scale_factor': '[name=Scale_factor]',
+				'data.Offset': '[name=Offset]',
+
+				'data.f0': '[name=f0]',
+				'data.c_v': '[name=c_v]',
+				'data.c_l': '[name=c_l]',
+				'data.cS1_x': '[name=cS1_x]',
+				'data.cS1_y': '[name=cS1_y]',
+				'data.cS1_z': '[name=cS1_z]',
+				'data.cS2_y': '[name=cS2_y]',
+				'data.cS2_r': '[name=cS2_r]',
+				'data.dS1': '[name=dS1]',
+				'data.dS2_r': '[name=dS2_r]',
+				'data.dS2_y': '[name=dS2_y]',
+				'data.d_l': '[name=d_l]',
+				'data.d_v': '[name=d_v]',
+				'data.c_p': '[name=c_p]',
+
+				'data.r0B': '[name=r0B]',
+				'data.r0CL_1': '[name=r0CL_1]',
+				'data.r0AL_1': '[name=r0AL_1]',
+				'data.r0AC_1': '[name=r0AC_1]',
+				'data.r0CL_2': '[name=r0CL_2]',
+				'data.r0AL_2': '[name=r0AL_2]',
+				'data.r0AL_2': '[name=r0AL_2]',
+				'data.r0AC_2': '[name=r0AC_2]',
+				'data.phi0': '[name=phi0]',
+				'data.tau0': '[name=tau0]',
+				'data.c': '[name=c]',
+
+				'data.rcm': '[name=rcm]',
+				'data.m': '[name=m]',
+				'data.i_11': '[name=i_11]',
+				'data.i_22': '[name=i_22]',
+				'data.i_33': '[name=i_33]',
+				'data.i_21': '[name=i_21]',
+				'data.i_31': '[name=i_31]',
+				'data.i_32': '[name=i_32]',
+			})
+
+			function escape(s) {
+				return (s || '').replace(/[<>]/g, function (m) {
+					return {
+						'<': '&lt;',
+						'>': '&gt;',
+					} [m]
+				})
+			}
+
+		}).catch(function (err) {
+			console.log(err);
+		})
+	</script>
+
 	<script>
 		$(function () {
-			
+
 			// 로컬스토리지 로드
 			var project = JSON.parse(localStorage.project);
-			console.log(project);
-			
+
+			// 정보창 셋팅
 			$("[name=title]").text(project.info.title);
-			$("[name=type]").text(project.info.type);
+			$("[name=vehicle_type]").text(project.info.vehicle_type);
+			$("[name=simulation_type]").text(project.info.simulation_type);
 			$("[name=frontAxle]").text(project.info.frontAxle);
 			$("[name=rearAxle]").text(project.info.rearAxle);
+
+			// 모델링 타입에 따른 탭설정
+			if (project.info.simulation_type.indexOf("K&C") == -1) {
+
+			} else {
+				$(".select-part li").eq(0).hide();
+				$(".select-part li").eq(1).hide();
+			}
 
 			// tab: 버튼 포커싱 방지
 			$("a.button").each(function () {
@@ -736,6 +875,69 @@
 			$(".select-part > li").click(function () {
 				$(".select-part > li").removeClass("is-link");
 				$(this).addClass("is-link");
+
+				if ($(this).text() == 'Rear Suspension') {
+					$(".is-waiting").parent().hide();
+					$(".preprocess-items").removeClass("is-hidden");
+				}
+
+				localStorage.setItem("sub_system", $(this).text());
+			})
+
+
+			// temp: 메뉴 셀렉트
+			$(".select-part li").eq(3).click();
+
+
+			// table 생성
+			$(".js-button-makeTable").click(function () {
+				$(".damper-table").html("");
+				var container = $(".damper-table").append("<table class='table is-bordered is-narrow is-striped'><tbody></tbody></table>");
+				var row = $(".makeTable-row").val();
+				var col = $(".makeTable-col").val();
+				var table = $(".damper-table > table");
+
+				for (var i = 1; i <= row; i++) {
+					var rows = $("<tr></tr>");
+					for (var j = 1; j <= col; j++) {
+						var cols = $("<td><input type=text name=damper_" + i + "_" + j + "></td>");
+						rows.append(cols);
+					}
+					table.append(rows);
+				}
+			})
+
+
+			// 그래프 생성
+			$(".js-button-makeGraph").click(function () {
+				var data = [];
+				var row = $(".damper-table table").find("tr");
+				for (var i = 0; i < row.length; i++) {
+					var array = [];
+					var cols = row.eq(i).find("td").length;
+					for (var j = 0; j < cols; j++) {
+						var value = row.eq(i).find("input").eq(j).val();
+						array.push(value);
+					}
+					data.push(array);
+					data[i].unshift("data" + i);
+				}
+				var chart = c3.generate({
+					bindto: "#damper-graph",
+					data: {
+						columns: data
+					},
+					size: {
+						height:300
+					},
+					padding: {
+						top: 20,
+						right: 20,
+						bottom: 20
+					}
+				})
+				console.log(data);
+
 			})
 		})
 	</script>

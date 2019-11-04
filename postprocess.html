@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
     <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/c3.css">
     <title>iVH - Predator</title>
 </head>
 
@@ -37,115 +38,217 @@
             </li>
         </ul>
         <div class="util">
-            <a href="" class="button button-history is-primary"><i class="fas fa-history"></i>Simulation
-                History</a>
             <a href="" class="button is-danger"><i class="fas fa-power-off"></i>Logout</a>
         </div>
     </nav>
 
     <section class="section postprocess">
         <div class="container">
+
             <div class="columns">
                 <aside class="column is-4">
                     <div class="box is-fixed">
+                        <h2 class="title is-6"><i class="far fa-folder-open"></i>Project: <span name="title"></span></h2>
                         <div class="content">
-                            <h2 class="title is-6">Process Summary</h2>
-                            <ul>
-                                <li><b>Vehicle</b>Hyundai Vehicle 001</li>
-                                <li><b>Axles</b>Frond(1) / Rear(1)</li>
-                                <li><b>Part</b>Body</li>
+                            <ul class="projectInfo">
+                                <li>
+                                    <div class="item-name">Vehicles</div>
+                                    <div class="item-value" name="type"></div>
+                                </li>
+                                <li>
+                                    <div class="item-name">Configure Axle</div>
+                                    <div class="item-value">Front : <span name="frontAxle"></span> / Rear : <span name="rearAxle"></span></div>
+                                </li>
+                                <li>
+                                    <div class="item-name">Sub-system</div>
+                                    <div class="item-value"><span name="subSystem"></span></div>
+                                </li>
                             </ul>
                         </div>
-                        <div class="buttons">
-                            <a href="./simulation.html" class="button is-dark"><i class="fas fa-arrow-left"></i>Back to Simulation</a>
-                        </div>
                     </div>
-                    <div class="box">
-                        <h2 class="title is-6">Data</h2>
-                        <table class="table is-fullwidth is-bordered is-striped is-narrow">
-                            <thead>
-                                <tr>
-                                    <th>Performance Index</th>
-                                    <th>Value</th>
-                                    <th>Unit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>SideSlip Rate</td>
-                                    <td>0.14</td>
-                                    <td>sec</td>
-                                </tr>
-                                <tr>
-                                    <td>Ay vs Time</td>
-                                    <td>0.07</td>
-                                    <td>sec</td>
-                                </tr>
-                                <tr>
-                                    <td>TawR vs Time</td>
-                                    <td>0.16</td>
-                                    <td>sec</td>
-                                </tr>
-                                <tr>
-                                    <td>RollR vs Ay</td>
-                                    <td>0.16</td>
-                                    <td>deg/s s</td>
-                                </tr>
-                                <tr>
-                                    <td>Roll vs Time</td>
-                                    <td>1.00002</td>
-                                    <td>%</td>
-                                </tr>
-                                <tr>
-                                    <td>SideSlip Rate</td>
-                                    <td>0.14</td>
-                                    <td>sec</td>
-                                </tr>
-                                <tr>
-                                    <td>Ay vs Time</td>
-                                    <td>0.07</td>
-                                    <td>sec</td>
-                                </tr>
-                                <tr>
-                                    <td>TawR vs Time</td>
-                                    <td>0.16</td>
-                                    <td>sec</td>
-                                </tr>
-                                <tr>
-                                    <td>RollR vs Ay</td>
-                                    <td>0.16</td>
-                                    <td>deg/s s</td>
-                                </tr>
-                                <tr>
-                                    <td>Roll vs Time</td>
-                                    <td>1.00002</td>
-                                    <td>%</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="box">
-                        <h2 class="title is-6">Input</h2>
-                        <canvas class="myChart1"></canvas>
-                        <canvas class="myChart2"></canvas>
+                    <div class="compare-list box">
+                        <h2>Simulation Record</h2>
+                        <ul class="graph-item">
+                            <li>
+                                <span class="name"><i class="fas fa-check"></i>Project_001</span>
+                                <span class="date">2019.11.1</span>
+                            </li>
+                            <li>
+                                <span class="name"><i class="fas fa-check"></i>Project_002</span>
+                                <span class="date">2019.11.1</span>
+                            </li>
+                            <li>
+                                <span class="name"><i class="fas fa-check"></i>Project_003</span>
+                                <span class="date">2019.11.1</span>
+                            </li>
+                            <li>
+                                <span class="name"><i class="fas fa-check"></i>Project_004</span>
+                                <span class="date">2019.11.1</span>
+                            </li>
+                        </ul>
                     </div>
                 </aside>
 
                 <div class="column is-8">
-                    <div class="box">
-                        <h2 class="title is-4">Result</h2>
+                    <div class="content-tab">
+                        <ul>
+                            <li class="is-active">Current Simulation</li>
+                            <li>Compare Simulation</li>
+                        </ul>
+                    </div>
+                    <div class="box is-result tab-content">
+                        <ul class="userInfo">
+                            <li>
+                                <span class="name">Identification</span>
+                                <span class="value">kildong_machine(Hong Kil Dong)</span>
+                            </li>
+                            <li>
+                                <span class="name">Employee number</span>
+                                <span class="value">90174371029</span>
+                            </li>
+                            <li>
+                                <span class="name">Report Date</span>
+                                <span class="value today"></span>
+                            </li>
+                        </ul>
+
                         <div class="columns">
+
                             <div class="column">
-                                <canvas class="myChart3" height="200"></canvas>
-                                <canvas class="myChart4" height="200"></canvas>
-                                <canvas class="myChart5" height="200"></canvas>
+                                <table class="table is-fullwidth is-bordered table-result">
+                                    <thead>
+                                        <tr>
+                                            <th>Load Case</th>
+                                            <th>Item</th>
+                                            <th>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="4">Vertical Parallel</td>
+                                            <td>Bump Steer (deg/mm)<br>Negative Value : Toe-Out</td>
+                                            <td>0.000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bump Camber (deg/m)</td>
+                                            <td>-0.035</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wheel Center Locus (mm/mm)</td>
+                                            <td>-0.040</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wheel Rate(N/mm)</td>
+                                            <td>25.95</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="4">Vertical Opposite</td>
+                                            <td>Roll Steer Change (deg/deg)Positive Value : Toe-Out</td>
+                                            <td>0.019</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Roll Camber Change (deg/deg)</td>
+                                            <td>-0.599</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wheel Vertical Loads v Roll Angle(N/deg) (at WC)</td>
+                                            <td>-441.1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Suspension Roll Rate (Nmm/deg) (at WC)</td>
+                                            <td>528.2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                             <div class="column">
-                                <canvas class="myChart6" height="200"></canvas>
-                                <canvas class="myChart7" height="200"></canvas>
-                                <canvas class="myChart8" height="200"></canvas>
+                                <table class="table is-fullwidth is-bordered table-result">
+                                    <thead>
+                                        <tr>
+                                            <th>Load Case</th>
+                                            <th>Item</th>
+                                            <th>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="3">Lateral Opposite</td>
+                                            <td>Lateral compliance at WC (mm/KN)</td>
+                                            <td>0.822</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lateral Steer (deg/KN)Positive Value : Toe-Out</td>
+                                            <td>-0.029</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lateral Camber (deg/KN)</td>
+                                            <td>-0.407</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3">Lateral Parallel</td>
+                                            <td>Lateral compliance at WC (mm/KN)</td>
+                                            <td>0.891</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lateral Steer (deg/KN)Positive Value : Toe-Out</td>
+                                            <td>-0.036</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lateral Camber (deg/KN)</td>
+                                            <td>-0.250</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2">Toe Compliance</td>
+                                            <td>Lateral Steer (deg/Nm)Positive Value : Toe-Out</td>
+                                            <td>0.025</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lateral Camber (deg/Nm)</td>
+                                            <td>-0.008</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2">Toe Compliance</td>
+                                            <td>Lateral Steer (deg/Nm)Positive Value : Toe-Out</td>
+                                            <td>0.025</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lateral Camber (deg/Nm)</td>
+                                            <td>-2.479</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3">Fore-Aft Mode</td>
+                                            <td>Longitudinal Compliance (mm/KN)</td>
+                                            <td>3.473</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Longitudinal Steer (deg/KN)Negative Value : Toe-Out)</td>
+                                            <td>0.370</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Longitudinal Caster (deg/KN)</td>
+                                            <td>-0.734</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+
+
+
+                        <div class="is-waiting">
+                            <span><i class="far fa-clock"></i>Waiting for Result</span>
+                        </div>
+
+                        <!-- chart -->
+                        <div id="charts"></div>
+                    </div>
+                    <div class="box is-result tab-content" style="display: none;">
+                        <h2 class="title is-4">Compare</h2>
+                        <div class="is-waiting">
+                            <span><i class="far fa-clock"></i>Waiting for Result</span>
+                        </div>
+                        <!-- chart -->
+                        <div id="charts-compare"></div>
                     </div>
 
                     <div class="level">
@@ -160,7 +263,7 @@
                         <div class="level-right">
                             <div class="level-item">
                                 <div class="buttons">
-                                    <a href="./preprocess.html" class="button is-link"><i class="fas fa-home"></i>Go to Pre Process</a>
+                                    <a href="./new_project.html" class="button is-link"><i class="fas fa-home"></i>Go to Pre Process</a>
                                 </div>
                             </div>
                         </div>
@@ -169,8 +272,11 @@
             </div>
         </div>
     </section>
-    <footer class="container">
-        © Institute of Vehicle Engineering
+
+    <footer class="footer">
+        <div class="container">
+            © Institute of Vehicle Engineering
+        </div>
     </footer>
 
     <!-- modal save -->
@@ -182,10 +288,8 @@
                     <p class="modal-card-title">Save Result</p>
                     <button class="delete" aria-label="close"></button>
                 </header>
-                <section class="modal-card-body">
-                    <div class="field">
-                        <input type="text" class="input" placeholder="Please enter a subject">
-                    </div>
+                <section class="modal-card-body has-text-centered">
+                    Do you want to save <span class="project_title" name="title"></span>?
                 </section>
                 <footer class="modal-card-foot">
                     <button class="button is-success">Save</button>
@@ -196,82 +300,66 @@
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
-
-
-    <!-- modal hitory -->
-    <div class="modal modal-history">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <div class="info">
-                    <h1>Simulation History</h1>
-                    <h1 class="user"><i class="fas fa-user-circle"></i>admin@ivh.com</h1>
-                </div>
-                <hr>
-                <table class="table is-bordered is-hoverable is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th>Subject</th>
-                            <th>Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="title">Test 001-4783937489</td>
-                            <td>2019/09/31 12:12:11</td>
-                            <td>
-                                <div class="buttons is-centered">
-                                    <a href="" class="button is-small is-link"><i class="fas fa-history"></i>Load</a>
-                                    <a href="" class="button is-small is-danger"><i class="far fa-trash-alt"></i>Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="title">Test 001-4783937489</td>
-                            <td>2019/09/31 12:12:11</td>
-                            <td>
-                                <div class="buttons is-centered">
-                                    <a href="" class="button is-small is-link"><i class="fas fa-history"></i>Load</a>
-                                    <a href="" class="button is-small is-danger"><i class="far fa-trash-alt"></i>Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="title">Test 001-4783937489</td>
-                            <td>2019/09/31 12:12:11</td>
-                            <td>
-                                <div class="buttons is-centered">
-                                    <a href="" class="button is-small is-link"><i class="fas fa-history"></i>Load</a>
-                                    <a href="" class="button is-small is-danger"><i class="far fa-trash-alt"></i>Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="title">Test 001-4783937489</td>
-                            <td>2019/09/31 12:12:11</td>
-                            <td>
-                                <div class="buttons is-centered">
-                                    <a href="" class="button is-small is-link"><i class="fas fa-history"></i>Load</a>
-                                    <a href="" class="button is-small is-danger"><i class="far fa-trash-alt"></i>Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <hr>
-                <a href="" class="button button-close">Close</a>
-            </div>
-        </div>
-        <button class="modal-close is-large" aria-label="close"></button>
-    </div>
-
-
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"></script>
+    <script src="./js/c3.js"></script>
     <script>
         $(function () {
+
+            // 오늘날짜
+            var today = new Date();
+            var todayDate = today.getFullYear() + "." + (today.getMonth() + 1) + "." + today.getDate();
+            $(".today").text(todayDate)
+
+
+            var chart_compare;
+            // content tab
+            $(".content-tab li").click(function () {
+                var idx = $(this).index();
+                $(".content-tab li").removeClass("is-active");
+                $(this).addClass("is-active");
+
+                $(".tab-content").hide();
+                $(".tab-content").eq(idx).show();
+
+                if (idx == 1) {
+                    $(".compare-list").show();
+
+                    chart_compare = c3.generate({
+                        bindto: "#charts-compare",
+                        data: {
+                            columns: [
+                                ['Project_001', 1, 2, 3, 4, 5, 6],
+                                ['Project_002', 4, 6, 21, 3, 12, 2],
+                                ['Project_003', 12, -9, 31, 4, 1, 12],
+                                ['Project_004', 8, 1, 4, 7, 9, -5]
+                            ]
+                        }
+                    })
+                } else {
+                    $(".compare-list").hide();
+                }
+            })
+
+            $(".graph-item li").click(function () {
+                var name = $(this).find(".name").text();
+                $(this).toggleClass("is-unchecked")
+                chart_compare.toggle(name);
+            })
+
+
+            // 로컬스토리지 로드
+            var project = JSON.parse(localStorage.project);
+            var sub_system = localStorage.sub_system;
+
+            // 정보창 셋팅
+            $("[name=title]").text(project.info.title);
+            $("[name=type]").text(project.info.type);
+            $("[name=frontAxle]").text(project.info.frontAxle);
+            $("[name=rearAxle]").text(project.info.rearAxle);
+            $("[name=subSystem]").text(sub_system);
+
             $(".button-save").click(function (e) {
                 e.preventDefault();
                 $(".modal-save").addClass("is-active");
@@ -288,152 +376,73 @@
             })
         })
 
-        var ctx1 = document.querySelector('.myChart1');
-        var ctx2 = document.querySelector('.myChart2');
-        var ctx3 = document.querySelector('.myChart3');
-        var ctx4 = document.querySelector('.myChart4');
-        var ctx5 = document.querySelector('.myChart5');
-        var ctx6 = document.querySelector('.myChart6');
-        var ctx7 = document.querySelector('.myChart7');
-        var ctx8 = document.querySelector('.myChart8');
-        var options = {
-            layout: {
-                padding: {
-                    top: 20,
-                    bottom: 20
-                }
-            },
-            legend: {
-                display: false
-            },
-            title: {
-                display: true,
-                text: 'Steering Wheel Angle',
-                fontColor: '#000'
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    },
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Angle(deg)'
-                    }
-                }],
-                xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Time(s)'
-                    }
-                }]
+        $(window).on('load', function () {
+
+            var keys, values;
+            var getUrl = "./data/sampleRes.json";
+
+            function getData() {
+                return new Promise(function (resolve, reject) {
+                    $.getJSON(getUrl, function (response) {
+                        if (response) {
+                            resolve(response);
+                        }
+                        reject(new Error("failed"));
+                    })
+                })
             }
-        };
-        var myChart1 = new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels: ['1', '2', '3', '4', '5', '6'],
-                datasets: [{
-                    label: 'Steering Wheel Angle',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255, 255, 255, 0)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1,
-                    lineTension: 0
-                }]
-            },
-            options: options
-        });
-        var myChart2 = new Chart(ctx2, {
-            type: 'line',
-            data: {
-                labels: ['1', '2', '3', '4', '5', '6'],
-                datasets: [{
-                    label: 'Steering Wheel Angle',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255, 255, 255, 0)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1,
-                    lineTension: 0
-                }]
-            },
-            options: options
-        });
-        var myChart3 = new Chart(ctx3, {
-            type: 'line',
-            data: {
-                labels: ['1', '2', '3', '4', '5', '6'],
-                datasets: [{
-                    label: 'Steering Wheel Angle',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255, 255, 255, 0)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1,
-                    lineTension: 0
-                }]
-            },
-            options: options
-        });
-        var myChart4 = new Chart(ctx4, {
-            type: 'line',
-            data: {
-                labels: ['1', '2', '3', '4', '5', '6'],
-                datasets: [{
-                    label: 'Steering Wheel Angle',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255, 255, 255, 0)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1,
-                    lineTension: 0
-                }]
-            },
-            options: options
-        });
-        var myChart5 = new Chart(ctx5, {
-            type: 'line',
-            data: {
-                labels: ['1', '2', '3', '4', '5', '6'],
-                datasets: [{
-                    label: 'Steering Wheel Angle',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255, 255, 255, 0)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1,
-                    lineTension: 0
-                }]
-            },
-            options: options
-        });
-        var myChart6 = new Chart(ctx6, {
-            type: 'line',
-            data: {
-                labels: ['1', '2', '3', '4', '5', '6'],
-                datasets: [{
-                    label: 'Steering Wheel Angle',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255, 255, 255, 0)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1,
-                    lineTension: 0
-                }]
-            },
-            options: options
-        });
-        var myChart7 = new Chart(ctx7, {
-            type: 'line',
-            data: {
-                labels: ['1', '2', '3', '4', '5', '6'],
-                datasets: [{
-                    label: 'Steering Wheel Angle',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255, 255, 255, 0)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1,
-                    lineTension: 0
-                }]
-            },
-            options: options
-        });
+
+            getData().then(function (data) {
+                    keys = Object.keys(data);
+                    values = Object.values(data);
+                })
+                .then(function () {
+                    makeCanvas(keys, values, $("#charts"));
+                })
+
+            function makeDataPoints(key, values) {
+                var arrayLabel = new Array();
+                arrayLabel.push(key);
+                for (var i = 0; i < values.length; i++) {
+                    arrayLabel.push(values[i]);
+                }
+                return arrayLabel;
+            }
+
+            function makeCanvas(keys, values, container) {
+                var target = container;
+
+                for (var i = 0; i < keys.length; i++) {
+                    target.append("<div id=chart_" + i + "></div>");
+                    var dataPoints = makeDataPoints(keys[i], values[i]);
+
+                    var container = "#chart_" + i;
+
+                    var chart = c3.generate({
+                        bindto: container,
+                        data: {
+                            columns: [dataPoints]
+                        },
+                        axis: {
+                            x: {
+                                // show: false
+                            }
+                        },
+                        point: {
+                            // show: false
+                        },
+                        color: {
+                            pattern: ['#ff3860']
+                        },
+                        oninit: function () {
+                            if (i == keys.length - 1) {
+                                $(".is-waiting").hide();
+                            }
+                        }
+                    })
+                }
+            }
+        })
     </script>
 </body>
 

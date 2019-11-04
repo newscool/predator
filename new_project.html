@@ -37,7 +37,6 @@
             </li>
         </ul>
         <div class="buttons">
-            <a href="" class="button is-primary is-small"><i class="far fa-folder-open"></i>My Project</a>
             <a href="" class="button is-danger is-small"><i class="fas fa-power-off"></i>Logout</a>
         </div>
     </nav>
@@ -57,10 +56,23 @@
                         </div>
 
                         <div class="field">
-                            <label class="label">Vehicles</label>
+                            <label class="label">Simulation Type</label>
                             <div class="control">
                                 <div class="select is-small">
-                                    <select name="type">
+                                    <select name="simulation_type">
+                                        <option>Select Type</option>
+                                        <option>R&H Simulation</option>
+                                        <option>Front Suspension K&C Simulation</option>
+                                        <option>Rear Suspension K&C Simulation</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Vehicle Type</label>
+                            <div class="control">
+                                <div class="select is-small">
+                                    <select name="vehicle_type">
                                         <option>Select Car</option>
                                         <option>Truck</option>
                                         <option>Bus</option>
@@ -92,10 +104,9 @@
                             </div>
                         </div>
 
-                        <hr>
-
                         <div class="buttons is-centered">
-                            <a href="./preprocess.html" class="button button-next is-link"><i class="fas fa-check"></i>Make Project</a>
+                            <a class="button is-success js-button-import"><i class="fas fa-history"></i>Import Project</a>
+                            <a href="./preprocess.html" class="button button-next is-link"><i class="fas fa-check"></i>Make New Project</a>
                         </div>
                     </div>
                 </aside>
@@ -104,39 +115,132 @@
         </div>
     </section>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
             © Institute of Vehicle Engineering
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <!-- modal import -->
+    <div class="modal modal-import">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Import Project</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <table class="table is-bordered is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Project name</th>
+                                <th>Date</th>
+                                <th>Import</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="name">Project_001_username</td>
+                                <td class="date">2019.11.1</td>
+                                <td>
+                                    <a href="" class="button is-danger">Import</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">Project_001_username</td>
+                                <td class="date">2019.11.1</td>
+                                <td>
+                                    <a href="" class="button is-danger">Import</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">Project_001_username</td>
+                                <td class="date">2019.11.1</td>
+                                <td>
+                                    <a href="" class="button is-danger">Import</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">Project_001_username</td>
+                                <td class="date">2019.11.1</td>
+                                <td>
+                                    <a href="" class="button is-danger">Import</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">Project_001_username</td>
+                                <td class="date">2019.11.1</td>
+                                <td>
+                                    <a href="" class="button is-danger">Import</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button">Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bind.min.js"></script>
 
     <script>
-        $(function() {
+        $(function () {
+
+            // local storage 초기화
+            // localStorage.removeItem("project");
 
             // 프로젝트 데이터 초기화
             var project = {
                 info: {
                     title: "",
-                    type: "",
+                    simulation_type: "",
+                    vehicle_type: "",
                     frontAxle: "",
                     rearAxle: "",
                 }
             }
 
             // input, select 입력시 프로젝트 데이터 할당
-            $("input, select").on("change", function() {
+            $("input, select").on("change", function () {
                 var name = $(this).attr("name");
                 project.info[name] = $(this).val();
                 console.log(project);
             })
 
-            // Nmake project 버튼 클릭시 로컬스토리지에 저장
-            $(".button-next").click(function(e) {
+
+            // import 버튼 
+            $(".js-button-import").click(function(e) {
                 e.preventDefault();
-                localStorage.setItem('project', JSON.stringify(project));
-                location.href = "./preprocess.html";
+                $(".modal-import").addClass("is-active");
+            })
+
+            $(".button-save").click(function (e) {
+                e.preventDefault();
+                $(".modal-save").addClass("is-active");
+            })
+
+            $(".modal-background, button.delete, .modal-close, .button-close").click(function (e) {
+                e.preventDefault();
+                $(this).parents(".modal").removeClass("is-active");
+            })
+
+            // Nmake project 버튼 클릭시 로컬스토리지에 저장
+            $(".button-next").click(function (e) {
+                e.preventDefault();
+
+                if (project.info.title && project.info.simulation_type && project.info.vehicle_type && project.info.frontAxle && project.info.rearAxle) {
+                    localStorage.setItem('project', JSON.stringify(project));
+                    location.href = "./preprocess.html";
+                } else {
+                    alert("Please Input Fields!");
+                }
             })
         })
     </script>
