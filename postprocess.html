@@ -68,22 +68,120 @@
                     </div>
                     <div class="compare-list box">
                         <h2>Simulation Record</h2>
-                        <ul class="graph-item">
+                        <ul class="compare-items">
                             <li>
-                                <span class="name"><i class="fas fa-check"></i>Project_001</span>
-                                <span class="date">2019.11.1</span>
+                                <div class="info">
+                                    <span class="view"><i class="fas fa-check-square"></i></span>
+                                    <span class="title">Project_001</span>
+                                    <span class="date">2019.11.11</span>
+                                </div>
+                                <div class="sub-list">
+                                    <h4>Parallel Wheel Travel</h4>
+                                    <ul class="compare-items-2">
+                                        <li>
+                                            <span>Wheel Travel</span>
+                                        </li>
+                                        <li>
+                                            <span>Wheel Base</span>
+                                        </li>
+                                        <li>
+                                            <span>Wheel Tread</span>
+                                        </li>
+                                        <li>
+                                            <span>Camber</span>
+                                        </li>
+                                    </ul>
+                                    <h4>Longitudinal Wheel Centre Compliance</h4>
+                                    <ul class="compare-items-2">
+                                        <li>
+                                            <span>side view angle</span>
+                                        </li>
+                                        <li>
+                                            <span>Toe</span>
+                                        </li>
+                                    </ul>
+                                    <h4>Longitudinal Toe Compliance</h4>
+                                    <ul class="compare-items-2">
+                                        <li>
+                                            <span>Vertical Force</span>
+                                        </li>
+                                        <li>
+                                            <span>Lateral Force</span>
+                                        </li>
+                                    </ul>
+                                    <h4>Lateral Wheel Centre Compliance</h4>
+                                    <ul class="compare-items-2">
+                                        <li>
+                                            <span>Longitudinal Force</span>
+                                        </li>
+                                        <li>
+                                            <span>Aliging Moment</span>
+                                        </li>
+                                    </ul>
+                                    <h4>Lateral Toe Compliance</h4>
+                                    <ul class="compare-items-2">
+                                        <li>
+                                            <span>Overturing Moment</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li>
-                                <span class="name"><i class="fas fa-check"></i>Project_002</span>
-                                <span class="date">2019.11.1</span>
-                            </li>
-                            <li>
-                                <span class="name"><i class="fas fa-check"></i>Project_003</span>
-                                <span class="date">2019.11.1</span>
-                            </li>
-                            <li>
-                                <span class="name"><i class="fas fa-check"></i>Project_004</span>
-                                <span class="date">2019.11.1</span>
+                                <div class="info">
+                                    <span class="view"><i class="fas fa-check-square"></i></span>
+                                    <span class="title">Project_002</span>
+                                    <span class="date">2019.11.12</span>
+                                </div>
+                                <div class="sub-list">
+                                    <h4>Parallel Wheel Travel</h4>
+                                    <ul class="compare-items-2">
+                                        <li>
+                                            <span>Wheel Travel</span>
+                                        </li>
+                                        <li>
+                                            <span>Wheel Base</span>
+                                        </li>
+                                        <li>
+                                            <span>Wheel Tread</span>
+                                        </li>
+                                        <li>
+                                            <span>Camber</span>
+                                        </li>
+                                    </ul>
+                                    <h4>Longitudinal Wheel Centre Compliance</h4>
+                                    <ul class="compare-items-2">
+                                        <li>
+                                            <span>side view angle</span>
+                                        </li>
+                                        <li>
+                                            <span>Toe</span>
+                                        </li>
+                                    </ul>
+                                    <h4>Longitudinal Toe Compliance</h4>
+                                    <ul class="compare-items-2">
+                                        <li>
+                                            <span>Vertical Force</span>
+                                        </li>
+                                        <li>
+                                            <span>Lateral Force</span>
+                                        </li>
+                                    </ul>
+                                    <h4>Lateral Wheel Centre Compliance</h4>
+                                    <ul class="compare-items-2">
+                                        <li>
+                                            <span>Longitudinal Force</span>
+                                        </li>
+                                        <li>
+                                            <span>Aliging Moment</span>
+                                        </li>
+                                    </ul>
+                                    <h4>Lateral Toe Compliance</h4>
+                                    <ul class="compare-items-2">
+                                        <li>
+                                            <span>Overturing Moment</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -329,6 +427,9 @@
                                 ['Project_003', 12, -9, 31, 4, 1, 12],
                                 ['Project_004', 8, 1, 4, 7, 9, -5]
                             ]
+                        },
+                        point: {
+                            show: false
                         }
                     })
                 } else {
@@ -336,10 +437,26 @@
                 }
             })
 
-            $(".graph-item li").click(function () {
-                var name = $(this).find(".name").text();
-                $(this).toggleClass("is-unchecked")
-                chart_compare.toggle(name);
+            // 그래프 비교 트리
+            $(".compare-items li").click(function () {
+                $(this).find(".sub-list").slideToggle();
+                // $(this).toggleClass("is-unchecked")
+                // chart_compare.toggle(name);
+            })
+            $(".compare-items .view").click(function (e) {
+                e.stopPropagation();
+                $(this).toggleClass("disabled");
+                console.log($(this).hasClass("disabled"));
+                
+                if ($(this).hasClass("disabled")) {
+                    $(this).parent().next().find(".compare-items-2 li").addClass("disabled");
+                }else{
+                    $(this).parent().next().find(".compare-items-2 li").removeClass("disabled");
+                }
+            })
+            $(".compare-items-2 li").click(function (e) {
+                e.stopPropagation();
+                $(this).toggleClass("disabled");
             })
 
 

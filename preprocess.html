@@ -460,7 +460,7 @@
 											<input class="makeTable-row" type="text">
 										</div>
 										<div class="input-text is-short" data-unit="col">
-											<input class="makeTable-col" type="text">
+											<input class="makeTable-col" type="text" value="2" disabled>
 										</div>
 										<a class="button js-button-makeTable is-link">Apply</a>
 									</div>
@@ -892,7 +892,7 @@
 			// table 생성
 			$(".js-button-makeTable").click(function () {
 				$(".damper-table").html("");
-				var container = $(".damper-table").append("<table class='table is-bordered is-narrow is-striped'><tbody></tbody></table>");
+				var container = $(".damper-table").append("<table class='table is-fullwidth is-bordered is-narrow is-striped'><thead><tr><th>Velocity[m/s]</th><th>Force[N]</th></tr></thead><tbody></tbody></table>");
 				var row = $(".makeTable-row").val();
 				var col = $(".makeTable-col").val();
 				var table = $(".damper-table > table");
@@ -920,11 +920,16 @@
 						array.push(value);
 					}
 					data.push(array);
-					data[i].unshift("data" + i);
+					if (i == 0) {
+						data[i].unshift("x");
+					}else{
+						data[i].unshift("data" + i);
+					}
 				}
 				var chart = c3.generate({
 					bindto: "#damper-graph",
 					data: {
+						x: 'x',
 						columns: data
 					},
 					size: {

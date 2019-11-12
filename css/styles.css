@@ -444,7 +444,7 @@ table td {
 }
 
 table input {
-    width: 50px;
+    /* width: 50px; */
 }
 
 .button {
@@ -594,20 +594,81 @@ span[name=title] {
 .compare-list {
     display: none;
 }
-.compare-list ul li {
+.compare-list > ul > li {
     font-size: 13px;
+    border: 1px solid #eee;
     color: #000;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 10px;
+    padding: 8px;
     transition: all .3s;
     cursor: pointer;
 }
-.compare-list ul li.is-unchecked {
+.compare-list > ul > li.is-unchecked {
     color: #ccc;
 }
-.compare-list ul li:hover {
-    background-color: #f8f8f8;
+.compare-list > ul > li:hover {
+    /* background-color: #f8f8f8; */
+}
+.compare-list > ul > li .info {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+.compare-list > ul > li .view {
+    margin-right: 5px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* cursor: pointer; */
+}
+.compare-list > ul > li .view.disabled {
+    color: #eee;
+}
+.compare-list > ul > li .view i {
+    font-size: 18px;
+    margin: 0;
+}
+.compare-list > ul > li .title {
+    margin: 0;
+    flex-grow: 1;
+    font-size: inherit;
+}
+.compare-list > ul > li .date {
+    color: #999;
+}
+.compare-list .sub-list {
+    padding: 5px;
+    display: none;
+}
+.compare-list .sub-list h4 {
+    background-color: #eee;
+    color: #333;
+    padding: 5px 10px;
+    margin-top: 5px;
+    margin-left: 20px;
+    font-size: 11px;
+
+}
+.compare-list .sub-list ul {
+    margin-left: 20px;
+    padding-left: 10px;
+    font-size: 0;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+}
+.compare-list .sub-list ul li {
+    display: inline-block;
+    width: 50%;
+    font-size: 11px;
+    padding: 4px;
+}
+.compare-list .sub-list ul li.disabled {
+    opacity: .3;
+    text-decoration: line-through;
+}
+.compare-list .sub-list ul li span:hover {
+    border-bottom: 1px solid #000;
 }
 
 #output {
