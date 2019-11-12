@@ -97,6 +97,7 @@
                         </ul>
                     </div>
                     <div class="box is-result tab-content">
+                        <h3>Project Summary</h3>
                         <ul class="userInfo">
                             <li>
                                 <span class="name">Identification</span>
@@ -112,128 +113,121 @@
                             </li>
                         </ul>
 
-                        <div class="columns">
+                        <h3>Summary of K&C Result</h3>
+                        <table class="table is-fullwidth is-bordered table-result">
+                            <thead>
+                                <tr>
+                                    <th>Load Case</th>
+                                    <th>Item</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="4">Vertical Parallel</td>
+                                    <td>Bump Steer (deg/mm)<br>Negative Value : Toe-Out</td>
+                                    <td>0.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Bump Camber (deg/m)</td>
+                                    <td>-0.035</td>
+                                </tr>
+                                <tr>
+                                    <td>Wheel Center Locus (mm/mm)</td>
+                                    <td>-0.040</td>
+                                </tr>
+                                <tr>
+                                    <td>Wheel Rate(N/mm)</td>
+                                    <td>25.95</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">Vertical Opposite</td>
+                                    <td>Roll Steer Change (deg/deg)Positive Value : Toe-Out</td>
+                                    <td>0.019</td>
+                                </tr>
+                                <tr>
+                                    <td>Roll Camber Change (deg/deg)</td>
+                                    <td>-0.599</td>
+                                </tr>
+                                <tr>
+                                    <td>Wheel Vertical Loads v Roll Angle(N/deg) (at WC)</td>
+                                    <td>-441.1</td>
+                                </tr>
+                                <tr>
+                                    <td>Suspension Roll Rate (Nmm/deg) (at WC)</td>
+                                    <td>528.2</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                            <div class="column">
-                                <table class="table is-fullwidth is-bordered table-result">
-                                    <thead>
-                                        <tr>
-                                            <th>Load Case</th>
-                                            <th>Item</th>
-                                            <th>Value</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td rowspan="4">Vertical Parallel</td>
-                                            <td>Bump Steer (deg/mm)<br>Negative Value : Toe-Out</td>
-                                            <td>0.000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bump Camber (deg/m)</td>
-                                            <td>-0.035</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Wheel Center Locus (mm/mm)</td>
-                                            <td>-0.040</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Wheel Rate(N/mm)</td>
-                                            <td>25.95</td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="4">Vertical Opposite</td>
-                                            <td>Roll Steer Change (deg/deg)Positive Value : Toe-Out</td>
-                                            <td>0.019</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Roll Camber Change (deg/deg)</td>
-                                            <td>-0.599</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Wheel Vertical Loads v Roll Angle(N/deg) (at WC)</td>
-                                            <td>-441.1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Suspension Roll Rate (Nmm/deg) (at WC)</td>
-                                            <td>528.2</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="column">
-                                <table class="table is-fullwidth is-bordered table-result">
-                                    <thead>
-                                        <tr>
-                                            <th>Load Case</th>
-                                            <th>Item</th>
-                                            <th>Value</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td rowspan="3">Lateral Opposite</td>
-                                            <td>Lateral compliance at WC (mm/KN)</td>
-                                            <td>0.822</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lateral Steer (deg/KN)Positive Value : Toe-Out</td>
-                                            <td>-0.029</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lateral Camber (deg/KN)</td>
-                                            <td>-0.407</td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="3">Lateral Parallel</td>
-                                            <td>Lateral compliance at WC (mm/KN)</td>
-                                            <td>0.891</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lateral Steer (deg/KN)Positive Value : Toe-Out</td>
-                                            <td>-0.036</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lateral Camber (deg/KN)</td>
-                                            <td>-0.250</td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="2">Toe Compliance</td>
-                                            <td>Lateral Steer (deg/Nm)Positive Value : Toe-Out</td>
-                                            <td>0.025</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lateral Camber (deg/Nm)</td>
-                                            <td>-0.008</td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="2">Toe Compliance</td>
-                                            <td>Lateral Steer (deg/Nm)Positive Value : Toe-Out</td>
-                                            <td>0.025</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lateral Camber (deg/Nm)</td>
-                                            <td>-2.479</td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="3">Fore-Aft Mode</td>
-                                            <td>Longitudinal Compliance (mm/KN)</td>
-                                            <td>3.473</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Longitudinal Steer (deg/KN)Negative Value : Toe-Out)</td>
-                                            <td>0.370</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Longitudinal Caster (deg/KN)</td>
-                                            <td>-0.734</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-
+                        <table class="table is-fullwidth is-bordered table-result">
+                            <thead>
+                                <tr>
+                                    <th>Load Case</th>
+                                    <th>Item</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3">Lateral Opposite</td>
+                                    <td>Lateral compliance at WC (mm/KN)</td>
+                                    <td>0.822</td>
+                                </tr>
+                                <tr>
+                                    <td>Lateral Steer (deg/KN)Positive Value : Toe-Out</td>
+                                    <td>-0.029</td>
+                                </tr>
+                                <tr>
+                                    <td>Lateral Camber (deg/KN)</td>
+                                    <td>-0.407</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">Lateral Parallel</td>
+                                    <td>Lateral compliance at WC (mm/KN)</td>
+                                    <td>0.891</td>
+                                </tr>
+                                <tr>
+                                    <td>Lateral Steer (deg/KN)Positive Value : Toe-Out</td>
+                                    <td>-0.036</td>
+                                </tr>
+                                <tr>
+                                    <td>Lateral Camber (deg/KN)</td>
+                                    <td>-0.250</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">Toe Compliance</td>
+                                    <td>Lateral Steer (deg/Nm)Positive Value : Toe-Out</td>
+                                    <td>0.025</td>
+                                </tr>
+                                <tr>
+                                    <td>Lateral Camber (deg/Nm)</td>
+                                    <td>-0.008</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">Toe Compliance</td>
+                                    <td>Lateral Steer (deg/Nm)Positive Value : Toe-Out</td>
+                                    <td>0.025</td>
+                                </tr>
+                                <tr>
+                                    <td>Lateral Camber (deg/Nm)</td>
+                                    <td>-2.479</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">Fore-Aft Mode</td>
+                                    <td>Longitudinal Compliance (mm/KN)</td>
+                                    <td>3.473</td>
+                                </tr>
+                                <tr>
+                                    <td>Longitudinal Steer (deg/KN)Negative Value : Toe-Out)</td>
+                                    <td>0.370</td>
+                                </tr>
+                                <tr>
+                                    <td>Longitudinal Caster (deg/KN)</td>
+                                    <td>-0.734</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                         <div class="is-waiting">
                             <span><i class="far fa-clock"></i>Waiting for Result</span>
@@ -429,7 +423,7 @@
                             }
                         },
                         point: {
-                            // show: false
+                            show: false
                         },
                         color: {
                             pattern: ['#ff3860']
@@ -438,9 +432,16 @@
                             if (i == keys.length - 1) {
                                 $(".is-waiting").hide();
                             }
+
                         }
                     })
                 }
+
+                $("div[id^=chart_]").eq(0).before("<h3>Plot – Parallel Wheel Travel</h3>");
+                $("div[id^=chart_]").eq(4).before("<h3>Plot – Longitudinal Compliance</h3>");
+                $("div[id^=chart_]").eq(6).before("<h3>Title</h3>");
+                $("div[id^=chart_]").eq(8).before("<h3>Title</h3>");
+                $("div[id^=chart_]").eq(10).before("<h3>Title</h3>");
             }
         })
     </script>
