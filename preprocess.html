@@ -911,12 +911,14 @@
 			// 그래프 생성
 			$(".js-button-makeGraph").click(function () {
 				var data = [];
-				var row = $(".damper-table table").find("tr");
-				for (var i = 0; i < row.length; i++) {
+				var col = $(".damper-table table tbody tr").eq(0).find("td");
+				
+				for (var i = 0; i < col.length; i++) {
 					var array = [];
-					var cols = row.eq(i).find("td").length;
-					for (var j = 0; j < cols; j++) {
-						var value = row.eq(i).find("input").eq(j).val();
+					var row = $(".damper-table table tbody").find("tr").length;
+					
+					for (var j = 0; j < row; j++) {
+						var value = $("input[name=damper_" + (j + 1)  + "_" + (i + 1) + "]").val();
 						array.push(value);
 					}
 					data.push(array);

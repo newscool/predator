@@ -704,6 +704,9 @@ span[name=title] {
 .damper-table {
     margin-bottom: 15px;
 }
+.damper-table input {
+    text-align: center;
+}
 
 .is-result h3:not(:first-of-type) {
     margin-top: 50px;
